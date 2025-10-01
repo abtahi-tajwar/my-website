@@ -3,7 +3,7 @@
 // Commands: /help, /ls, /cd <key>, /cat <name|index|N.txt>
 
 const DEFAULTS = {
-  userHost: "alex@portfolio",
+  userHost: "abtahi@portfolio",
   dataUrl: "./data.json",
   welcomeHint: "Type /help. Press <Tab> for autocomplete.",
 };
