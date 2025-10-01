@@ -1,0 +1,203 @@
+{
+  "profile": {
+    "name": {
+      "firstname": "MD Abtahi",
+      "lastname": "Tajwar"
+    },
+    "email": "abtahitajwar@gmail.com",
+    "phone": "+1 (437) 955-1053",
+    "address": "Boak Street, North York, Toronto, ON",
+    "github": "https://github.com/abtahi-tajwar",
+    "linkedin": "https://www.linkedin.com/in/abtahi-tajwar/",
+    "about": "Hi, I’m Abtahi — a Fullstack Web Developer passionate about building scalable applications and creative digital experiences. With expertise in React, Next.js, Laravel, and modern UI frameworks, I craft clean, performant, and user-focused solutions. Currently based in Canada, I’m blending my background in software engineering with my growing focus on cybersecurity and research.",
+    "professionalExperienceInYear": 3,
+    "independentExperienceInYear": 7,
+    "totalGithubStars": 90,
+    "projectsCompleted": 10,
+    "description": [
+      "Hi, I’m Abtahi — a full-stack developer and problem solver who thrives at the intersection of clean design, scalable systems, and secure engineering practices. Over the past few years, I’ve built and led projects ranging from multi-tenant retail platforms to intuitive productivity tools, using technologies like React, Next.js, TypeScript, Tailwind, and Laravel. My approach to development is hands-on and iterative: I believe in building fast, learning from real users, and refining until the experience feels effortless.",
+      "I’ve worked on high-impact projects, including government-sponsored initiatives and enterprise-grade web platforms, where both performance and reliability were critical. I enjoy architecting solutions that not only solve immediate needs but can also evolve gracefully as businesses scale. Beyond my technical focus, I bring strong communication skills and a collaborative mindset, making me comfortable leading teams as well as diving deep into solo problem-solving.",
+      "Currently based in Canada, I’m also expanding into cybersecurity and research, with a vision to combine robust development practices with secure-by-default design. For me, building software isn’t just about shipping features — it’s about creating systems that are dependable, usable, and trusted."
+    ]
+  },
+  "certifications": [
+    {
+      "name": "Jr Penetration Tester - Certificate of completion",
+      "issuer": "Tryhackme",
+      "completionDate": "26th September, 2025",
+      "id": "THM-QVJTX5I2ST",
+      "url": "https://tryhackme.com/certificate/THM-QVJTX5I2ST",
+      "skills": ["Red", "Penetration Testing", "Linux", "Red Teaming"]
+    }
+  ],
+  "education": [
+    {
+      "level": "B.Sc.",
+      "institution": "American International University Bangladesh",
+      "field": "Computer Science & Engineering (CSE)",
+      "cgpa": "3.89 / 4.00",
+      "year": "2022",
+      "description": "Graduated in Computer Science & Engineering with a strong academic foundation, achieving a CGPA of 3.89/4.00. Focused on software engineering, problem-solving, and full-stack development."
+    },
+    {
+      "level": "M. Sc.",
+      "institution": "Niagara Univesity in Ontario",
+      "field": "Information Security & Digital Forensics",
+      "cgpa": "3.94 / 4.00 (Current)",
+      "year": "Ongoing",
+      "description": "Pursuing a Master’s in Information Security & Digital Forensics, maintaining a CGPA of 3.94/4.00. Concentrating on cybersecurity, digital forensics, and applied research in secure systems."
+    }
+  ],
+
+  "employment": [
+    {
+      "company": "Alagzoo Software LLC",
+      "role": "Fullstack Web Developer",
+      "duration": "25/04/2022 - 28/02/2025",
+      "description": "**Lead developer on ‘Bleam’, a multi-tenant retail & fintech platform.**",
+      "keyAcheivements": [
+        "Led core development of the 'Bleam' white-label POS, inventory, e-commerce and accounting suite",
+        "Served as lead frontend developer on the U.S. government–sponsored 'Student Uplift' project",
+        "Led 2 projects and delivered 4 successful React applications"
+      ],
+      "technologies": ["React", "Next", "Node", "Laravel", "Vue"],
+      "url": "https://alagzoo.com/solutions/"
+    },
+    {
+      "company": "Xit Bangladesh",
+      "role": "Web Developer",
+      "duration": "01/02/2021 - 20/04/2022",
+      "description": "**Built and shipped e-commerce sites; led an independent web app project.**",
+      "keyAcheivements": [
+        "Developed and maintained multiple production e-commerce websites",
+        "Led end-to-end development of the 'Resume Builder' web application",
+        "Expanded responsibilities beyond Laravel to contribute across the stack"
+      ],
+      "technologies": ["React", "Laravel"],
+      "url": "https://www.facebook.com/xitbd/"
+    }
+  ],
+
+  "skills": {
+    "languages": ["Javascript", "C#", "Python", "C++"],
+    "frameworks": [
+      "React/Next.js",
+      ".NET",
+      "Sveltekit",
+      "CSS",
+      "Tailwind",
+      "Laravel",
+      "MySQL/MongoDB/PostGresql",
+      "Firebase"
+    ],
+    "soft": [
+      "Critical Thinking",
+      "Quick Learner",
+      "Communication",
+      "Consistency",
+      "Leadership",
+      "Teamwork"
+    ]
+  },
+
+  "research": [
+    {
+      "title": "Intelligent Software Bug Prediction: An Empirical Approach",
+      "keywords": [
+        "Machine Learning",
+        "Deep Learning",
+        "Software Bug Prediction"
+      ],
+      "description": "Empirical research on software bug prediction. Performance evaluation of ML algorithms to detect software bugs and investigation of feature selection impact.",
+      "link": "https://ieeexplore.ieee.org/abstract/document/10070026"
+    }
+  ],
+  "projects": {
+    "featured": [
+      {
+        "title": "Bleaum",
+        "type": "Web App",
+        "duration": "10/10/2021 - Present",
+        "description": "Comprehensive e-commerce, retail & accounting platform with microservices (Page Builder, Fintech, Logistics). Full-stack contributions plus finance module design.",
+        "tech": ["Next.js", "Redux", "Node.js", "Tailwind", "Ant Design"],
+        "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?fit=crop&w=1080&q=80",
+        "stars": 0,
+        "forks": 0,
+        "codeUrl": null,
+        "demoUrl": "https://bleaum.io/"
+      },
+      {
+        "title": "Resume Builder",
+        "type": "Web App",
+        "duration": "10/10/2021 - Present",
+        "description": "Online CV maker with a fast, no-friction UI for building resumes without formatting pain.",
+        "tech": ["React.js", "Redux", "Firebase"],
+        "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?fit=crop&w=1080&q=80",
+        "stars": 0,
+        "forks": 0,
+        "codeUrl": "https://github.com/abtahi-tajwar/ResumeBuilder.git",
+        "demoUrl": "https://st-resume-builder.netlify.app/"
+      },
+      {
+        "title": "Pixel Art & Animation Maker",
+        "type": "Web App",
+        "date": "30/04/2021",
+        "description": "Create pixel art and export 2D sprite sheets for game dev workflows.",
+        "tech": ["JavaScript", "HTML Canvas"],
+        "image": "https://images.unsplash.com/photo-1542751110-97427bbecf20?fit=crop&w=1080&q=80",
+        "stars": 0,
+        "forks": 0,
+        "codeUrl": "https://github.com/abtahi-tajwar/PixelArtApp.git",
+        "demoUrl": "https://abtahi-tajwar.github.io/PixelArtApp/"
+      },
+      {
+        "title": "The Clear Quran Web App",
+        "type": "Web App",
+        "date": "05/06/2022",
+        "description": "A comprehensive Quran reading experience with clear explanations and paragraph-separated modules.",
+        "tech": ["React", "Redux", "Firebase"],
+        "image": "https://images.unsplash.com/photo-1520975682031-6debodyzx3d1?fit=crop&w=1080&q=80",
+        "stars": 0,
+        "forks": 0,
+        "codeUrl": "https://github.com/abtahi-tajwar/The-Clear-Quran.git",
+        "demoUrl": "https://clear-quran.netlify.app/"
+      },
+      {
+        "title": "OpenGL Code Generator",
+        "type": "Web App",
+        "date": "27/05/2021",
+        "description": "Drawing app that generates OpenGL code from sketches (repo has ~31 stars).",
+        "tech": ["JavaScript", "HTML Canvas"],
+        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=1080&q=80",
+        "stars": 31,
+        "forks": 0,
+        "codeUrl": "https://github.com/abtahi-tajwar/CGCodeGenerator.git",
+        "demoUrl": "https://abtahi-tajwar.github.io/CGCodeGenerator/"
+      },
+      {
+        "title": "Web Animation Library",
+        "type": "Plugin",
+        "date": "08/09/2021",
+        "description": "Background animation library (CDN-friendly) usable with HTML/CSS, React, and Angular.",
+        "tech": ["JavaScript", "HTML Canvas"],
+        "image": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?fit=crop&w=1080&q=80",
+        "stars": 0,
+        "forks": 0,
+        "codeUrl": "https://github.com/abtahi-tajwar/CoolWebEffectLibrary.git",
+        "demoUrl": null
+      },
+      {
+        "title": "E Exam Admin Panel",
+        "type": "Website",
+        "date": "08/10/2021",
+        "description": "Admin dashboard for an online exam platform: CSV/XLSX import, CRUD, DataTable, and dynamic roles.",
+        "tech": ["Laravel", "MySQL"],
+        "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?fit=crop&w=1080&q=80",
+        "stars": 0,
+        "forks": 0,
+        "codeUrl": "https://github.com/n0k1b/e-exam.git",
+        "demoUrl": null
+      }
+    ]
+  }
+}

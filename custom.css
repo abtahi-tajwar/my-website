@@ -1,0 +1,87 @@
+.line-height-0 {
+  line-height: 0px;
+}
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.hw-50 {
+  height: 50px;
+  width: 50px;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.space-x-4 > * + * {
+  margin-left: 0.8rem;
+}
+/* Responsive display utilities (Tailwind-like) */
+@media (min-width: 768px) {
+  .md\:hidden {
+    display: none !important;
+  }
+  .md\:block {
+    display: block !important;
+  }
+  .md\:flex {
+    display: flex !important;
+  }
+  .md\:inline-flex {
+    display: inline-flex !important;
+  }
+}
+@media (min-width: 640px) {
+  .sm\:flex-row {
+    flex-direction: row !important;
+  }
+}
+
+/* First timeline item: full-width card above the center line (desktop) */
+/* Keep the center line behind cards so it doesn't show through the hero */
+.timeline-line {
+  z-index: 0;
+}
+.timeline-item .timeline-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Desktop layout */
+@media (min-width: 768px) {
+  /* 1) First item becomes a full-width hero */
+  .timeline-item--hero .timeline-content {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important; /* keep text normal */
+  }
+  .timeline-item--hero .timeline-dot {
+    display: none !important; /* no dot under the hero */
+  }
+  .timeline-item--hero {
+    margin-bottom: 3rem; /* nice gap before item #2's dot */
+  }
+
+  /* 2) Start alternation from item #2 (ignore the hero) */
+  .timeline-item:not(.timeline-item--hero):nth-child(even) .timeline-content {
+    /* even => left side of the center line */
+    margin-left: 0 !important;
+    margin-right: calc(50% + 3rem) !important;
+    text-align: left !important; /* do NOT right-align text */
+  }
+
+  .timeline-item:not(.timeline-item--hero):nth-child(odd) .timeline-content {
+    /* odd => right side of the center line */
+    margin-left: calc(50% + 3rem) !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+  }
+
+  /* Make sure dots stay centered on the line at desktop */
+  .timeline-dot {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}
