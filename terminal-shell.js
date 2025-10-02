@@ -569,5 +569,5 @@ document.head.appendChild(style);
 // Start shell on page load (no typing animation)
 window.addEventListener("load", () => {
   const el = document.getElementById("terminalBody");
-  if (el) initInteractiveTerminal(el, { userHost: "alex@portfolio", dataUrl: "./data.json" });
+  if (el) initInteractiveTerminal(el, { userHost: "abtahi@portfolio", dataUrl: "./data.json" });
 });
