@@ -9,16 +9,20 @@
     "address": "Boak Street, North York, Toronto, ON",
     "github": "https://github.com/abtahi-tajwar",
     "linkedin": "https://www.linkedin.com/in/abtahi-tajwar/",
+    "blog": "https://dev.to/abtahitajwar",
+    "twitter": "https://x.com/abtahi_t",
     "about": "Hi, I’m Abtahi — a Fullstack Web Developer passionate about building scalable applications and creative digital experiences. With expertise in React, Next.js, Laravel, and modern UI frameworks, I craft clean, performant, and user-focused solutions. Currently based in Canada, I’m blending my background in software engineering with my growing focus on cybersecurity and research.",
     "professionalExperienceInYear": 3,
     "independentExperienceInYear": 7,
     "totalGithubStars": 90,
     "projectsCompleted": 10,
+    "youtube": "https://www.youtube.com/@abtahi-tajwar",
     "description": [
       "Hi, I’m Abtahi — a full-stack developer and problem solver who thrives at the intersection of clean design, scalable systems, and secure engineering practices. Over the past few years, I’ve built and led projects ranging from multi-tenant retail platforms to intuitive productivity tools, using technologies like React, Next.js, TypeScript, Tailwind, and Laravel. My approach to development is hands-on and iterative: I believe in building fast, learning from real users, and refining until the experience feels effortless.",
       "I’ve worked on high-impact projects, including government-sponsored initiatives and enterprise-grade web platforms, where both performance and reliability were critical. I enjoy architecting solutions that not only solve immediate needs but can also evolve gracefully as businesses scale. Beyond my technical focus, I bring strong communication skills and a collaborative mindset, making me comfortable leading teams as well as diving deep into solo problem-solving.",
       "Currently based in Canada, I’m also expanding into cybersecurity and research, with a vision to combine robust development practices with secure-by-default design. For me, building software isn’t just about shipping features — it’s about creating systems that are dependable, usable, and trusted."
-    ]
+    ],
+    "location": "Toronto, ON"
   },
   "certifications": [
     {
@@ -112,92 +116,93 @@
       "link": "https://ieeexplore.ieee.org/abstract/document/10070026"
     }
   ],
-  "projects": {
-    "featured": [
-      {
-        "title": "Bleaum",
-        "type": "Web App",
-        "duration": "10/10/2021 - Present",
-        "description": "Comprehensive e-commerce, retail & accounting platform with microservices (Page Builder, Fintech, Logistics). Full-stack contributions plus finance module design.",
-        "tech": ["Next.js", "Redux", "Node.js", "Tailwind", "Ant Design"],
-        "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?fit=crop&w=1080&q=80",
-        "stars": 0,
-        "forks": 0,
-        "codeUrl": null,
-        "demoUrl": "https://bleaum.io/"
-      },
-      {
-        "title": "Resume Builder",
-        "type": "Web App",
-        "duration": "10/10/2021 - Present",
-        "description": "Online CV maker with a fast, no-friction UI for building resumes without formatting pain.",
-        "tech": ["React.js", "Redux", "Firebase"],
-        "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?fit=crop&w=1080&q=80",
-        "stars": 0,
-        "forks": 0,
-        "codeUrl": "https://github.com/abtahi-tajwar/ResumeBuilder.git",
-        "demoUrl": "https://st-resume-builder.netlify.app/"
-      },
-      {
-        "title": "Pixel Art & Animation Maker",
-        "type": "Web App",
-        "date": "30/04/2021",
-        "description": "Create pixel art and export 2D sprite sheets for game dev workflows.",
-        "tech": ["JavaScript", "HTML Canvas"],
-        "image": "https://images.unsplash.com/photo-1542751110-97427bbecf20?fit=crop&w=1080&q=80",
-        "stars": 0,
-        "forks": 0,
-        "codeUrl": "https://github.com/abtahi-tajwar/PixelArtApp.git",
-        "demoUrl": "https://abtahi-tajwar.github.io/PixelArtApp/"
-      },
-      {
-        "title": "The Clear Quran Web App",
-        "type": "Web App",
-        "date": "05/06/2022",
-        "description": "A comprehensive Quran reading experience with clear explanations and paragraph-separated modules.",
-        "tech": ["React", "Redux", "Firebase"],
-        "image": "https://images.unsplash.com/photo-1520975682031-6debodyzx3d1?fit=crop&w=1080&q=80",
-        "stars": 0,
-        "forks": 0,
-        "codeUrl": "https://github.com/abtahi-tajwar/The-Clear-Quran.git",
-        "demoUrl": "https://clear-quran.netlify.app/"
-      },
-      {
-        "title": "OpenGL Code Generator",
-        "type": "Web App",
-        "date": "27/05/2021",
-        "description": "Drawing app that generates OpenGL code from sketches (repo has ~31 stars).",
-        "tech": ["JavaScript", "HTML Canvas"],
-        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=1080&q=80",
-        "stars": 31,
-        "forks": 0,
-        "codeUrl": "https://github.com/abtahi-tajwar/CGCodeGenerator.git",
-        "demoUrl": "https://abtahi-tajwar.github.io/CGCodeGenerator/"
-      },
-      {
-        "title": "Web Animation Library",
-        "type": "Plugin",
-        "date": "08/09/2021",
-        "description": "Background animation library (CDN-friendly) usable with HTML/CSS, React, and Angular.",
-        "tech": ["JavaScript", "HTML Canvas"],
-        "image": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?fit=crop&w=1080&q=80",
-        "stars": 0,
-        "forks": 0,
-        "codeUrl": "https://github.com/abtahi-tajwar/CoolWebEffectLibrary.git",
-        "demoUrl": null
-      },
-      {
-        "title": "E Exam Admin Panel",
-        "type": "Website",
-        "date": "08/10/2021",
-        "description": "Admin dashboard for an online exam platform: CSV/XLSX import, CRUD, DataTable, and dynamic roles.",
-        "tech": ["Laravel", "MySQL"],
-        "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?fit=crop&w=1080&q=80",
-        "stars": 0,
-        "forks": 0,
-        "codeUrl": "https://github.com/n0k1b/e-exam.git",
-        "demoUrl": null
-      }
-    ]
-  }
+  "projects": [
+    {
+      "title": "VaneJS",
+      "type": "JS Library",
+      "duration": "20 May, 2025 - Present",
+      "description": "Comprehensive e-commerce, retail & accounting platform with microservices (Page Builder, Fintech, Logistics). Full-stack contributions plus finance module design.",
+      "tech": ["Vanilla JS", "Webpack"],
+      "image": "assets/projects/vanejs.png",
+      "stars": 49,
+      "forks": 8,
+      "featured": true,
+      "codeUrl": null,
+      "demoUrl": "https://bleaum.io/"
+    },
+    {
+      "title": "Bleaum",
+      "type": "Web App",
+      "duration": "10 October, 2021 - 28 February, 2025",
+      "description": "Comprehensive e-commerce, retail & accounting platform with microservices (Page Builder, Fintech, Logistics). Full-stack contributions plus finance module design.",
+      "tech": ["Next.js", "Redux", "Node.js", "Tailwind", "Ant Design"],
+      "image": "assets/projects/bleaum.png",
+      "stars": 0,
+      "forks": 0,
+      "featured": true,
+      "codeUrl": null,
+      "demoUrl": "https://bleaum.io/"
+    },
+    {
+      "title": "Resume Builder",
+      "type": "Web App",
+      "duration": "10/10/2021 - Present",
+      "description": "Online CV maker with a fast, no-friction UI for building resumes without formatting pain.",
+      "tech": ["React.js", "Redux", "Firebase"],
+      "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?fit=crop&w=1080&q=80",
+      "stars": 0,
+      "forks": 0,
+      "codeUrl": "https://github.com/abtahi-tajwar/ResumeBuilder.git",
+      "demoUrl": "https://st-resume-builder.netlify.app/"
+    },
+    {
+      "title": "(PixelSheet) Pixel Art & Animation Maker",
+      "type": "Web App",
+      "date": "30/04/2021",
+      "description": "Create pixel art and export 2D sprite sheets for game dev workflows.",
+      "tech": ["JavaScript", "HTML Canvas"],
+      "image": "assets/projects/pixelsheet.png",
+      "stars": 0,
+      "forks": 0,
+      "featured": true,
+      "codeUrl": "https://github.com/abtahi-tajwar/PixelArtApp.git",
+      "demoUrl": "https://abtahi-tajwar.github.io/PixelArtApp/"
+    },
+    {
+      "title": "OpenGL Code Generator",
+      "type": "Web App",
+      "date": "27/05/2021",
+      "description": "Drawing app that generates OpenGL code from sketches (repo has ~31 stars).",
+      "tech": ["JavaScript", "HTML Canvas"],
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=1080&q=80",
+      "stars": 31,
+      "forks": 0,
+      "codeUrl": "https://github.com/abtahi-tajwar/CGCodeGenerator.git",
+      "demoUrl": "https://abtahi-tajwar.github.io/CGCodeGenerator/"
+    },
+    {
+      "title": "Web Animation Library",
+      "type": "Plugin",
+      "date": "08/09/2021",
+      "description": "Background animation library (CDN-friendly) usable with HTML/CSS, React, and Angular.",
+      "tech": ["JavaScript", "HTML Canvas"],
+      "image": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?fit=crop&w=1080&q=80",
+      "stars": 0,
+      "forks": 0,
+      "codeUrl": "https://github.com/abtahi-tajwar/CoolWebEffectLibrary.git",
+      "demoUrl": null
+    },
+    {
+      "title": "E Exam Admin Panel",
+      "type": "Website",
+      "date": "08/10/2021",
+      "description": "Admin dashboard for an online exam platform: CSV/XLSX import, CRUD, DataTable, and dynamic roles.",
+      "tech": ["Laravel", "MySQL"],
+      "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?fit=crop&w=1080&q=80",
+      "stars": 0,
+      "forks": 0,
+      "codeUrl": "https://github.com/n0k1b/e-exam.git",
+      "demoUrl": null
+    }
+  ]
 }

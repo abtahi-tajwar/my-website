@@ -18,6 +18,22 @@
 .space-x-4 > * + * {
   margin-left: 0.8rem;
 }
+.mt-auto {
+  margin-top: auto;
+}
+.gap-2 {
+  gap: 0.5rem;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.h-full {
+  height: 100%;
+}
+.flex-1 {
+  flex: 1;
+}
+
 /* Responsive display utilities (Tailwind-like) */
 @media (min-width: 768px) {
   .md\:hidden {
@@ -47,6 +63,27 @@
 .timeline-item .timeline-content {
   position: relative;
   z-index: 1;
+}
+
+.btn-primary-sm {
+  background: linear-gradient(135deg, #a855f7, #06b6d4);
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary-sm:hover {
+  background: linear-gradient(135deg, #9333ea, #0891b2);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* Desktop layout */

@@ -159,26 +159,26 @@ document.getElementById("backToTop").addEventListener("click", function () {
 });
 
 // Contact form submission
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+// document.getElementById("contactForm").addEventListener("submit", function (e) {
+//   e.preventDefault();
 
-  // Get form data
-  const formData = new FormData(this);
-  const data = {
-    name: formData.get("name"),
-    email: formData.get("email"),
-    subject: formData.get("subject"),
-    message: formData.get("message"),
-  };
+//   // Get form data
+//   const formData = new FormData(this);
+//   const data = {
+//     name: formData.get("name"),
+//     email: formData.get("email"),
+//     subject: formData.get("subject"),
+//     message: formData.get("message"),
+//   };
 
-  console.log("Form submitted:", data);
+//   console.log("Form submitted:", data);
 
-  // Show success message (in a real app, you'd send this to a server)
-  alert("Thank you for your message! I'll get back to you soon.");
+//   // Show success message (in a real app, you'd send this to a server)
+//   alert("Thank you for your message! I'll get back to you soon.");
 
-  // Reset form
-  this.reset();
-});
+//   // Reset form
+//   this.reset();
+// });
 
 // Initialize scroll progress on page load
 window.addEventListener("scroll", updateScrollProgress);
@@ -241,3 +241,27 @@ document.addEventListener("DOMContentLoaded", function () {
     $refreshDOM(this.document);
   });
 });
+
+// Current Work Section - Intersection Observer for fade-in animation
+const workCards = document.querySelectorAll(".work-card");
+const workObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+
+        // Animate progress bar
+        const progressBar = entry.target.querySelector(".progress-bar");
+        if (progressBar) {
+          setTimeout(() => {
+            progressBar.style.width = "10%";
+          }, 500);
+        }
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
+
+workCards.forEach((card) => workObserver.observe(card));
