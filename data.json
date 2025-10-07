@@ -128,8 +128,8 @@
       "stars": 49,
       "forks": 8,
       "featured": true,
-      "codeUrl": null,
-      "demoUrl": "https://bleaum.io/"
+      "codeUrl": "https://github.com/abtahi-tajwar/vanejs",
+      "demoUrl": "https://vanejs.netlify.app/"
     },
     {
       "id": "bleaum",
@@ -144,6 +144,61 @@
       "featured": true,
       "codeUrl": null,
       "demoUrl": "https://bleaum.io/"
+    },
+    {
+      "id": "sparkle-music-react-native",
+      "title": "Sparkle Music (React Native)",
+      "type": "Mobile App",
+      "duration": "2022 — Present",
+      "description": "A cross-platform music player built with React Native. Apart from playing local audio, it allows users to download any song directly from YouTube and listen offline — designed for seamless journeys and daily use.",
+      "tech": [
+        "React Native",
+        "Expo",
+        "TypeScript",
+        "YouTube API",
+        "Async Storage"
+      ],
+      "image": "assets/projects/sparkle-music-rn.png",
+      "stars": 0,
+      "forks": 0,
+      "codeUrl": "https://github.com/abtahi-tajwar/SparkleMusic",
+      "demoUrl": null
+    },
+    {
+      "id": "sparkle-music-maui",
+      "title": "Sparkle Music (MAUI)",
+      "type": "Mobile App",
+      "duration": "2023 — Experimental Build",
+      "description": "A .NET MAUI port of the Sparkle Music app built to test early-stage MAUI capabilities. While it showcased strong cross-platform potential, it lacked the flexibility and maturity of React Native. The project was documented across personal blogs and videos.",
+      "tech": [".NET MAUI", "C#", "XAML", "MVVM", "SQLite"],
+      "image": "assets/projects/sparkle-music-maui.png",
+      "stars": 0,
+      "forks": 0,
+      "codeUrl": "https://github.com/abtahi-tajwar/SparkleMusic-MAUI",
+      "demoUrl": null
+    },
+    {
+      "id": "symamlaw-platform",
+      "title": "SymamLaw Learning Platform",
+      "type": "Full Platform (Web + Mobile + Admin)",
+      "duration": "2023 — Present",
+      "description": "A comprehensive online learning ecosystem built for a law educator with a large student base. It includes a mobile app, web platform, and admin portal featuring live and recorded classes, courses, articles, books, exams, quizzes, and progress tracking.",
+      "tech": [
+        "React-Native",
+        "Firebase",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Tailwind CSS"
+      ],
+      "image": "assets/projects/symamlaw.png",
+      "stars": 0,
+      "forks": 0,
+      "codeUrl": [
+        "https://github.com/fleeting-trails/SymamLaw-Mobile",
+        "https://github.com/fleeting-trails/symamlaw-admin"
+      ],
+      "demoUrl": "https://symamlaw.com/"
     },
     {
       "id": "resume-builder",

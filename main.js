@@ -32,6 +32,18 @@ function updateProjectLinks () {
   });
 }
 
+function initSourceAndDemoLinks() {
+  document.querySelectorAll('.source-link').forEach(el => {
+    const url = el.getAttribute('data-url');
+    if (url) {
+      el.setAttribute('href', url);
+    } else {
+      el.setAttribute('href', '#');
+      el.classList.add('display-none');
+    }
+  });
+}
+
 async function init() {
   try {
     const data = await loadData();
@@ -57,6 +69,7 @@ async function init() {
     }
 
     updateProjectLinks();
+    initSourceAndDemoLinks();
   } catch (err) {
     console.error(err);
   }
