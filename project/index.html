@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom right, #000000, #1a1a1a, #000000);
+            color: white;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace !important;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #a855f7, #06b6d4);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Fixed Background Elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute top-1/2 -left-40 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"
+            style="animation-delay: 2s;"></div>
+        <div class="absolute -bottom-40 right-1/3 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl animate-pulse"
+            style="animation-delay: 4s;"></div>
+    </div>
+
+    <div class="relative z-10">
+        <!-- Simplified Header -->
+        <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/20 border-b border-white/10">
+            <div class="max-w-6xl mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="/"
+                        class="flex items-center space-x-2 text-white/80 hover:text-white transition-colors duration-200 hover:bg-white/10 px-3 py-2 rounded-lg backdrop-blur-sm group">
+                        <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-200" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                        <span class="font-mono">Back to Portfolio</span>
+                    </a>
+
+                    <div class="flex items-center space-x-4">
+
+                        <a data-vn-if="{data.sidebar.links.source} != undefined" data-vn-bind-attr="href=data.sidebar.links.source.href" href="https://github.com" target="_blank" rel="noopener noreferrer"
+                            class="p-2 rounded-lg backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all duration-300 text-white/80 hover:text-white border border-white/20 hover:border-white/40">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                        </a>
+                        <a data-vn-if="{data.sidebar.links.live} != undefined" target="_blank" data-vn-bind-attr="href=data.sidebar.links.live.href"
+                            rel="noopener noreferrer"
+                            class="px-4 py-2 bg-gradient-to-r from-purple-500 to-cyan-500 text-white rounded-lg hover:from-purple-600 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl font-medium text-sm">
+                            View Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="pt-24 pb-20">
+            <div class="max-w-6xl mx-auto px-6">
+                <!-- Breadcrumb -->
+                <nav class="mb-8">
+                    <ol class="flex items-center space-x-2 text-sm">
+                        <li>
+                            <a href="portfolio.html"
+                                class="text-white/60 hover:text-white transition-colors duration-200">Home</a>
+                        </li>
+                        <li class="text-white/40">/</li>
+                        <li>
+                            <a href="portfolio.html#projects"
+                                class="text-white/60 hover:text-white transition-colors duration-200">Projects</a>
+                        </li>
+                        <li class="text-white/40">/</li>
+                        <li class="text-cyan-400 font-medium" data-vn-bind="data.seo.slug">E-Commerce Platform</li>
+                    </ol>
+                </nav>
+
+                <!-- Project Hero -->
+                <div class="mb-16">
+                    <div class="mb-6">
+                        <h1 data-vn-bind="data.hero.title"
+                            class="text-4xl md:text-5xl lg:text-6xl mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent font-mono">
+                            E-Commerce Platform
+                        </h1>
+                        <p data-vn-bind="data.hero.subtitle" class="text-xl text-white/80 leading-relaxed max-w-3xl">
+                            A full-featured e-commerce solution with payment integration, inventory management,
+                            and analytics dashboard. Built for scalability and performance.
+                        </p>
+                    </div>
+
+                    <!-- Project Meta -->
+                    <div class="flex flex-wrap gap-6 mb-8">
+                        <div class="flex items-center space-x-2 text-white/70">
+                            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <span data-vn-bind="data.hero.meta.duration">6 months</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-white/70">
+                            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                                </path>
+                            </svg>
+                            <span data-vn-bind="data.hero.meta.team">Team of 5</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-white/70">
+                            <svg class="w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+                                </path>
+                            </svg>
+                            <span data-vn-bind="data.hero.meta.adoption">100k+ Active Users</span>
+                        </div>
+                    </div>
+
+                    <!-- Tech Stack -->
+                    <div data-vn-repeat="data.hero.tags as tag" class="flex flex-wrap gap-2">
+                        <span
+                            class="px-4 py-2 backdrop-blur-sm bg-gradient-to-r from-purple-500/20 to-cyan-500/20 text-white/90 rounded-full border border-white/20 text-sm"
+                            data-vn-ritem="{tag}">React</span>
+                    </div>
+                </div>
+
+                <!-- Project Image -->
+                <div
+                    class="mb-16 rounded-2xl overflow-hidden backdrop-blur-lg bg-white/5 border border-white/10 shadow-2xl">
+                    <img data-vn-bind-attr="src=data.hero.cover.src; alt=data.hero.cover.alt"
+                        src="https://images.unsplash.com/photo-1694599048261-a1de00f0117e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlJTIwZGVzaWdufGVufDF8fHx8MTc1OTAzMzYzMHww&ixlib=rb-4.1.0&q=80&w=1080"
+                        alt="E-Commerce Platform" class="w-full h-auto object-cover">
+                </div>
+
+                <!-- Case Study Content -->
+                <div class="grid lg:grid-cols-3 gap-12">
+                    <!-- Main Content -->
+                    <div class="lg:col-span-2 space-y-16">
+                        <!-- Challenge -->
+                        <section>
+                            <h2 class="text-3xl font-mono mb-6 flex items-center text-white">
+                                <span class="text-purple-400 mr-3">01.</span>
+                                The Challenge
+                            </h2>
+                            <div class="backdrop-blur-lg bg-white/5 rounded-2xl border border-white/10 p-8 shadow-xl">
+                                <p class="text-white/80 leading-relaxed mb-4"
+                                    data-vn-bind="data.sections.challenge.body">
+                                    Our client, a rapidly growing retail business, was struggling with their legacy
+                                    e-commerce platform
+                                    that couldn't handle increasing traffic and feature demands. The system frequently
+                                    crashed during peak
+                                    hours, had a clunky checkout process leading to 65% cart abandonment, and lacked
+                                    real-time inventory
+                                    synchronization across multiple warehouses.
+                                </p>
+                                <p class="text-white/80 leading-relaxed">
+                                    Key pain points included:
+                                </p>
+                                <ul class="mt-4 space-y-3" data-vn-repeat="data.sections.challenge.bullets as bullet">
+                                    <li class="flex items-start space-x-3 text-white/70">
+                                        <span class="text-pink-400 mt-1">→</span>
+                                        <span data-vn-ritem="{bullet}">Poor performance during high traffic
+                                            periods</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <!-- Solution -->
+                        <section>
+                            <h2 class="text-3xl font-mono mb-6 flex items-center text-white">
+                                <span class="text-cyan-400 mr-3">02.</span>
+                                The Solution
+                            </h2>
+                            <div class="backdrop-blur-lg bg-white/5 rounded-2xl border border-white/10 p-8 shadow-xl">
+                                <p class="text-white/80 leading-relaxed mb-6"
+                                    data-vn-bind="data.sections.solution.body">
+                                    We designed and built a modern, scalable e-commerce platform using a microservices
+                                    architecture.
+                                    The solution was built with React for a responsive frontend, Node.js for backend
+                                    services, and
+                                    PostgreSQL with Redis for data management and caching.
+                                </p>
+
+                                <div class="space-y-6" data-vn-repeat="data.sections.solution.pillars as pillar">
+                                    <div class="backdrop-blur-sm bg-white/5 rounded-xl p-6 border border-white/10">
+                                        <h3 class="text-xl text-white mb-3 flex items-center">
+                                            <span class="w-2 h-2 bg-purple-400 rounded-full mr-3"></span>
+                                            <span data-vn-ritem="{pillar}.label">Modern Architecture</span>
+                                        </h3>
+                                        <p data-vn-ritem="{pillar}.details" class="text-white/70 leading-relaxed">
+                                            Implemented microservices architecture allowing independent scaling of
+                                            payment processing,
+                                            inventory management, and user authentication services. Used Docker and
+                                            Kubernetes for
+                                            containerization and orchestration.
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Results -->
+                        <section>
+                            <h2 class="text-3xl font-mono mb-6 flex items-center text-white">
+                                <span class="text-yellow-400 mr-3">03.</span>
+                                Results & Impact
+                            </h2>
+                            <div class="backdrop-blur-lg bg-white/5 rounded-2xl border border-white/10 p-8 shadow-xl">
+                                <p class="text-white/80 leading-relaxed mb-8"
+                                    data-vn-bind="data.sections.results.intro">
+                                    The new platform exceeded all expectations and delivered significant improvements
+                                    across all key metrics:
+                                </p>
+
+                                <div class="grid md:grid-cols-2 gap-6"
+                                    data-vn-repeat="data.sections.results.metrics as metric">
+                                    <div
+                                        class="backdrop-blur-sm bg-white/5 rounded-xl p-6 border border-white/10 text-center hover:bg-white/10 transition-all duration-300">
+                                        <div class="text-4xl font-mono mb-2 text-purple-400"
+                                            data-vn-ritem="{metric}.value">40%</div>
+                                        <div class="text-white/70" data-vn-ritem="{metric}.label">Faster Page Load</div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="mt-8 p-6 backdrop-blur-sm bg-gradient-to-r from-purple-500/10 to-cyan-500/10 rounded-xl border border-purple-400/20">
+                                    <p data-vn-bind="data.sections.results.testimonial.quote"
+                                        class="text-white/90 leading-relaxed italic">
+                                        "The new platform has completely transformed our online business. We can now
+                                        handle Black Friday
+                                        traffic without breaking a sweat, and our customers love the seamless shopping
+                                        experience. This
+                                        investment has paid for itself many times over."
+                                    </p>
+                                    <p data-vn-bind="data.sections.results.testimonial.author"
+                                        class="text-cyan-400 mt-4">— Sarah Johnson, CEO</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="lg:col-span-1">
+                        <div class="sticky top-24 space-y-6">
+                            <!-- Project Info -->
+                            <div class="backdrop-blur-lg bg-white/5 rounded-2xl border border-white/10 p-6 shadow-xl">
+                                <h3 class="text-lg font-mono text-white mb-4 flex items-center">
+                                    <span class="text-purple-400 mr-2">//</span>
+                                    Project Info
+                                </h3>
+                                <div class="space-y-4" data-vn-repeat="data.sidebar.project_info as info">
+                                    <div>
+                                        <p class="text-white/60 text-sm mb-1" data-vn-ritem="{info}.label">Timeline</p>
+                                        <p class="text-white" data-vn-ritem="{info}.value">March - September 2023</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Technologies -->
+                            <div class="backdrop-blur-lg bg-white/5 rounded-2xl border border-white/10 p-6 shadow-xl">
+                                <h3 class="text-lg font-mono text-white mb-4 flex items-center">
+                                    <span class="text-cyan-400 mr-2">#</span>
+                                    Technologies
+                                </h3>
+                                <div class="space-y-3">
+                                    <div>
+                                        <p class="text-white/60 text-sm mb-2">Frontend</p>
+                                        <div class="flex flex-wrap gap-2"
+                                            data-vn-repeat="data.sidebar.technologies.frontend as tech">
+                                            <span
+                                                class="text-xs px-2 py-1 backdrop-blur-sm bg-white/10 rounded border border-white/20 text-white/80"
+                                                data-vn-ritem="{tech}">React</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-white/60 text-sm mb-2">Backend</p>
+                                        <div class="flex flex-wrap gap-2"
+                                            data-vn-repeat="data.sidebar.technologies.backend as tech">
+                                            <span
+                                                class="text-xs px-2 py-1 backdrop-blur-sm bg-white/10 rounded border border-white/20 text-white/80"
+                                                data-vn-ritem="{tech}">React</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-white/60 text-sm mb-2">Infrastructure</p>
+                                        <div class="flex flex-wrap gap-2"
+                                            data-vn-repeat="data.sidebar.technologies.infrastructure as tech">
+                                            <span
+                                                class="text-xs px-2 py-1 backdrop-blur-sm bg-white/10 rounded border border-white/20 text-white/80"
+                                                data-vn-ritem="{tech}">React</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Links -->
+                            <div class="backdrop-blur-lg bg-white/5 rounded-2xl border border-white/10 p-6 shadow-xl">
+                                <h3 class="text-lg font-mono text-white mb-4 flex items-center">
+                                    <span class="text-pink-400 mr-2">→</span>
+                                    Links
+                                </h3>
+                                <div class="space-y-3">
+                                    <a data-vn-if="{data.sidebar.links.live} != undefined" target="_blank" data-vn-bind-attr="href=data.sidebar.links.live.href" href="#"
+                                        class="flex items-center space-x-2 text-white/80 hover:text-white transition-colors duration-200 group">
+                                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
+                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                            </path>
+                                        </svg>
+                                        <span>View Live Site</span>
+                                    </a>
+                                    <a data-vn-if="{data.sidebar.links.source} != undefined" href="#"
+                                    target="_blank" data-vn-bind-attr="href=data.sidebar.links.source.href"
+                                        class="flex items-center space-x-2 text-white/80 hover:text-white transition-colors duration-200 group">
+                                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
+                                            fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                        </svg>
+                                        <span>Source Code</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="mt-20 pt-12 border-t border-white/10">
+                    <a href="portfolio.html#projects"
+                        class="flex items-center space-x-2 text-white/80 hover:text-white transition-colors duration-200 hover:bg-white/10 px-6 py-3 rounded-lg backdrop-blur-sm border border-white/20 hover:border-white/40 group inline-flex">
+                        <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-200" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                        <span>Back to All Projects</span>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // // Smooth scrolling for anchor links
+        // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        //     anchor.addEventListener('click', function (e) {
+        //         e.preventDefault();
+        //         const target = document.querySelector(this.getAttribute('href'));
+        //         if (target) {
+        //             target.scrollIntoView({ behavior: 'smooth' });
+        //         }
+        //     });
+        // });
+    </script>
+
+    <script type="module" src="project.js"></script>
+</body>
+
+</html>

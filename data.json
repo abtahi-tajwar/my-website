@@ -118,6 +118,7 @@
   ],
   "projects": [
     {
+      "id": "vanejs",
       "title": "VaneJS",
       "type": "JS Library",
       "duration": "20 May, 2025 - Present",
@@ -131,6 +132,7 @@
       "demoUrl": "https://bleaum.io/"
     },
     {
+      "id": "bleaum",
       "title": "Bleaum",
       "type": "Web App",
       "duration": "10 October, 2021 - 28 February, 2025",
@@ -144,6 +146,7 @@
       "demoUrl": "https://bleaum.io/"
     },
     {
+      "id": "resume-builder",
       "title": "Resume Builder",
       "type": "Web App",
       "duration": "10/10/2021 - Present",
@@ -156,6 +159,7 @@
       "demoUrl": "https://st-resume-builder.netlify.app/"
     },
     {
+      "id": "pixelsheet",
       "title": "(PixelSheet) Pixel Art & Animation Maker",
       "type": "Web App",
       "date": "30/04/2021",
@@ -169,6 +173,7 @@
       "demoUrl": "https://abtahi-tajwar.github.io/PixelArtApp/"
     },
     {
+      "id": "cgcodegenerator",
       "title": "OpenGL Code Generator",
       "type": "Web App",
       "date": "27/05/2021",
@@ -181,6 +186,7 @@
       "demoUrl": "https://abtahi-tajwar.github.io/CGCodeGenerator/"
     },
     {
+      "id": "webanimationlibrary",
       "title": "Web Animation Library",
       "type": "Plugin",
       "date": "08/09/2021",
@@ -193,6 +199,7 @@
       "demoUrl": null
     },
     {
+      "id": "e-exam-admin-panel",
       "title": "E Exam Admin Panel",
       "type": "Website",
       "date": "08/10/2021",

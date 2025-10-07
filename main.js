@@ -23,6 +23,15 @@ function normalizeTel(phone) {
   return `tel:${cleaned}`;
 }
 
+function updateProjectLinks () {
+  document.querySelectorAll('.project-link').forEach(el => {
+    const prid = el.getAttribute('data-prid');
+    if (prid) {
+      el.setAttribute('href', `/project/?id=${prid}`);
+    }
+  });
+}
+
 async function init() {
   try {
     const data = await loadData();
@@ -46,6 +55,8 @@ async function init() {
     if (data?.profile?.name) {
       document.title = `${data.profile.name.firstname} ${data.profile.name.lastname} - Portfolio`;
     }
+
+    updateProjectLinks();
   } catch (err) {
     console.error(err);
   }

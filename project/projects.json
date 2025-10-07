@@ -1,0 +1,389 @@
+{
+  "bleaum": {
+    "type": "case_study",
+    "id": "bleaum-ecommerce",
+    "owner": {
+      "name": "Abtahi Tajwar",
+      "role": "Lead Full-Stack Developer"
+    },
+    "seo": {
+      "page_title": "Bleaum — E-Commerce Platform | Case Study",
+      "slug": "bleaum-ecommerce-platform"
+    },
+    "breadcrumb": [
+      { "label": "Home", "href": "/portfolio.html" },
+      { "label": "Projects", "href": "/portfolio.html#projects" },
+      { "label": "Bleaum — E-Commerce Platform", "href": null }
+    ],
+    "hero": {
+      "title": "Bleaum — E-Commerce Platform",
+      "subtitle": "A full-featured retail & accounting platform with real-time inventory, integrated payments, multi-warehouse support, and an operator-friendly analytics console.",
+      "cover": {
+        "src": "../assets/projects/bleaum.png",
+        "alt": "Bleaum e-commerce interface mock"
+      },
+      "meta": {
+        "duration": "Oct 2021 — Present",
+        "team": "6-person product team",
+        "adoption": "100+ vendors in production"
+      },
+      "tags": [
+        "React",
+        "TypeScript",
+        "Node.js",
+        "Express",
+        "PostgreSQL",
+        "Redis",
+        "Stripe",
+        "Docker",
+        "AWS",
+        "Tailwind CSS"
+      ]
+    },
+    "sidebar": {
+      "project_info": [
+        { "label": "Timeline", "value": "Oct 2021 — Present" },
+        { "label": "My Role", "value": "Lead Frontend Developer" },
+        { "label": "Team Size", "value": "5 Developers, 1 Designer, 1 PM" },
+        { "label": "Industry", "value": "Retail & E-Commerce" }
+      ],
+      "technologies": {
+        "frontend": ["React", "TypeScript", "Tailwind CSS"],
+        "backend": ["Node.js", "Express", "PostgreSQL"],
+        "infrastructure": ["Redis", "Docker", "AWS (EC2/S3/ALB)"]
+      },
+      "links": {
+        "live": {
+          "label": "View Live Site",
+          "href": "https://bleaum.io/",
+          "kind": "live"
+        }
+      }
+    },
+    "sections": {
+      "challenge": {
+        "kind": "challenge",
+        "title": "01. The Challenge",
+        "body": "The client’s legacy monolith struggled under seasonal spikes and lacked multi-warehouse stock accuracy. Checkout friction drove abandonment, and reporting required manual CSV stitching.",
+        "bullets": [
+          "Performance degradation during peak campaigns",
+          "High checkout abandonment due to multi-step friction",
+          "No real-time, multi-warehouse inventory sync",
+          "Siloed data with limited analytics & alerts",
+          "Hard integrations with logistics and payment providers"
+        ]
+      },
+      "solution": {
+        "kind": "solution",
+        "title": "02. The Solution",
+        "body": [
+          "Re-architected the platform around service boundaries (auth, catalog, inventory, orders, payments, analytics) with API gateways and background workers. Introduced idempotent payment flows, real-time inventory signals, and an operator dashboard."
+        ],
+        "pillars": [
+          {
+            "label": "Modern Architecture",
+            "details": "Microservices with Docker on AWS; API gateway, worker queues, and PostgreSQL + Redis for transactional + caching layers."
+          },
+          {
+            "label": "Optimized Checkout",
+            "details": "3-step flow with Stripe; guest checkout, address autocompletion, saved cards, and real-time validation."
+          },
+          {
+            "label": "Real-Time Inventory",
+            "details": "WebSockets + Redis pub/sub to broadcast stock updates across warehouses and prevent overselling."
+          }
+        ]
+      },
+      "results": {
+        "kind": "results",
+        "title": "03. Results & Impact",
+        "intro": "Key outcomes after rollout to 100+ active vendors:",
+        "metrics": [
+          { "value": "≈40%", "label": "Faster page loads (TTFB & LCP)" },
+          { "value": "↓58%", "label": "Cart abandonment reduction" },
+          { "value": "99.9%", "label": "Measured monthly uptime" },
+          { "value": "3×", "label": "Peak traffic capacity" }
+        ],
+        "testimonial": {
+          "quote": "We can run major promos without outages, and operators finally have live stock and clean reporting. The platform pays for itself.",
+          "author": "Operations Lead (Bleaum Vendor)"
+        }
+      }
+    },
+    "tech_grid": [
+      { "group": "Frontend", "items": ["React", "TypeScript", "Tailwind CSS"] },
+      { "group": "Backend", "items": ["Node.js", "Express", "PostgreSQL"] },
+      {
+        "group": "Infrastructure",
+        "items": ["AWS EC2/S3/ALB", "Docker", "Redis", "NGINX"]
+      },
+      { "group": "Payments", "items": ["Stripe"] },
+      {
+        "group": "Observability",
+        "items": ["Structured logging", "Health checks", "Metrics dashboards"]
+      }
+    ],
+    "navigation": {
+      "back": {
+        "label": "Back to All Projects",
+        "href": "/portfolio.html#projects"
+      }
+    }
+  },
+  "vanejs": {
+    "type": "case_study",
+    "id": "vanejs-ui-library",
+    "owner": {
+      "name": "Abtahi Tajwar",
+      "role": "Creator & Lead Engineer"
+    },
+    "seo": {
+      "page_title": "VaneJS — Minimal Reactive UI Library | Case Study",
+      "slug": "vanejs-ui-library"
+    },
+    "breadcrumb": [
+      { "label": "Home", "href": "/portfolio.html" },
+      { "label": "Projects", "href": "/portfolio.html#projects" },
+      { "label": "VaneJS — Minimal Reactive UI Library", "href": null }
+    ],
+    "hero": {
+      "title": "VaneJS — Minimal Reactive UI Library",
+      "subtitle": "A no-build, dependency-free reactive layer for the DOM with declarative attribute binds (data-vn-text / data-vn-attr-bind), loops (data-vn-for), and a tiny state engine — converted to a modular Webpack project with template support via tagged literals in .vane.js files.",
+      "cover": {
+        "src": "../assets/projects/vanejs.png",
+        "alt": "VaneJS core concepts: state, binds, loops"
+      },
+      "meta": {
+        "duration": "2023 — Present",
+        "team": "Solo project",
+        "adoption": "Powering my portfolio & case-study pages"
+      },
+      "tags": [
+        "JavaScript",
+        "Vanilla DOM",
+        "Reactive State",
+        "Attribute Binds",
+        "Template Literals",
+        "Webpack",
+        "ES Modules",
+        "JSDoc/Type Hints",
+        "HTML/CSS"
+      ]
+    },
+    "sidebar": {
+      "project_info": [
+        { "label": "Timeline", "value": "2023 — Present" },
+        { "label": "My Role", "value": "Creator & Lead Engineer" },
+        { "label": "Team Size", "value": "Solo" },
+        { "label": "Category", "value": "Frontend Dev Tooling" }
+      ],
+      "technologies": {
+        "frontend": ["JavaScript (ES2020+)", "HTML", "CSS"],
+        "backend": ["N/A (client-side library)"],
+        "infrastructure": ["Webpack", "NPM", "GitHub Pages"]
+      },
+      "links": {
+        "live": {
+          "label": "Docs & Playground",
+          "href": "https://vanejs.netlify.app/",
+          "kind": "live"
+        },
+        "source": {
+          "label": "Source Code",
+          "href": "https://github.com/abtahi-tajwar/vanejs",
+          "kind": "source"
+        }
+      }
+    },
+    "sections": {
+      "challenge": {
+        "kind": "challenge",
+        "title": "01. The Challenge",
+        "body": "I needed a lightweight, framework-free way to build interactive pages (portfolio, case studies) without SSR or heavy bundles — while still getting reactive state, declarative binds, and iterable templates that work with plain HTML.",
+        "bullets": [
+          "Avoid large frameworks and build-step lock-in",
+          "Keep bundle size tiny and dependency-free",
+          "Use simple declarative binds instead of manual DOM code",
+          "Support lists/loops and attribute/text updates",
+          "Make it easy to slot into existing static pages"
+        ]
+      },
+      "solution": {
+        "kind": "solution",
+        "title": "02. The Solution",
+        "body": [
+          "Implemented a minimal state engine with fine-grained updates, declarative directives (data-vn-text, data-vn-attr-bind, data-vn-for), and a one-pass binder. Converted the codebase into a modular Webpack project and introduced .vane.js templates via tagged literals for clean, colocated markup."
+        ],
+        "pillars": [
+          {
+            "label": "Declarative Binds",
+            "details": "data-vn-text, data-vn-attr-bind (multi-pair), and data-vn-for for loops — keeping HTML as the source of truth."
+          },
+          {
+            "label": "Tiny Reactive Core",
+            "details": "Minimal pub/sub with keyed paths; updates patch only affected nodes for snappy refreshes."
+          },
+          {
+            "label": "Template Literals",
+            "details": "Support for .vane.js files exporting tagged template literals; compile-free authoring that stays close to HTML."
+          }
+        ]
+      },
+      "results": {
+        "kind": "results",
+        "title": "03. Results & Impact",
+        "intro": "VaneJS now powers dynamic sections of my portfolio, enabling rich case-study pages without a framework or server-side runtime.",
+        "metrics": [
+          { "value": "0", "label": "Runtime dependencies" },
+          { "value": "No build", "label": "Works directly in the browser" },
+          { "value": "Declarative", "label": "Binds & loops in HTML" },
+          { "value": "Modular", "label": "ESM + Webpack project"
+          }
+        ],
+        "testimonial": {
+          "quote": "Dropping VaneJS into static pages gave me reactive UI without rewriting everything — perfect for fast, lightweight case studies.",
+          "author": "Abtahi Tajwar (self-use feedback)"
+        }
+      }
+    },
+    "tech_grid": [
+      { "group": "Core", "items": ["Reactive state", "DOM patching", "Directive parser"] },
+      { "group": "Templates", "items": ["Tagged template literals", ".vane.js files"] },
+      { "group": "Build/Dist", "items": ["ES Modules", "Webpack", "NPM scripts"] },
+      { "group": "Authoring", "items": ["JSDoc types", "Inline directives", "Component helpers"] },
+      { "group": "Hosting", "items": ["GitHub Pages"] }
+    ],
+    "navigation": {
+      "back": {
+        "label": "Back to All Projects",
+        "href": "/portfolio.html#projects"
+      }
+    }
+  },
+  "pixelsheet": {
+    "type": "case_study",
+    "id": "pixelsheet-sprite-tool",
+    "owner": {
+      "name": "Abtahi Tajwar",
+      "role": "Creator & Frontend Engineer"
+    },
+    "seo": {
+      "page_title": "PixelSheet — Pixel Art & Animation Maker | Case Study",
+      "slug": "pixelsheet-animation-maker"
+    },
+    "breadcrumb": [
+      { "label": "Home", "href": "/portfolio.html" },
+      { "label": "Projects", "href": "/portfolio.html#projects" },
+      { "label": "PixelSheet — Pixel Art & Animation Maker", "href": null }
+    ],
+    "hero": {
+      "title": "PixelSheet — Pixel Art & Animation Maker",
+      "subtitle": "Create pixel art, animate frame-by-frame, and export clean sprite sheets for game workflows — all in the browser with HTML Canvas.",
+      "cover": {
+        "src": "../assets/projects/pixelsheet.png",
+        "alt": "PixelSheet editor with canvas, timeline, and sprite preview"
+      },
+      "meta": {
+        "duration": "Apr 2021 — Present",
+        "team": "Solo project",
+        "adoption": "Used to produce sprites for my own games"
+      },
+      "tags": [
+        "JavaScript",
+        "HTML Canvas",
+        "Sprite Sheets",
+        "Frame-by-Frame Animation",
+        "PNG Export",
+        "Keyboard Shortcuts",
+        "Web App"
+      ]
+    },
+    "sidebar": {
+      "project_info": [
+        { "label": "Timeline", "value": "Apr 2021 — Present" },
+        { "label": "My Role", "value": "Creator & Frontend Engineer" },
+        { "label": "Category", "value": "Graphics & Game Tools" },
+        { "label": "Use Case", "value": "Create and export 2D sprite sheets" }
+      ],
+      "technologies": {
+        "frontend": ["JavaScript", "HTML5 Canvas", "DOM APIs", "CSS"],
+        "backend": ["N/A (pure client-side)"],
+        "infrastructure": ["GitHub Pages"]
+      },
+      "links": {
+        "live": {
+          "label": "Open PixelSheet",
+          "href": "https://abtahi-tajwar.github.io/PixelArtApp/",
+          "kind": "live"
+        },
+        "source": {
+          "label": "Source Code",
+          "href": "https://github.com/abtahi-tajwar/PixelArtApp.git",
+          "kind": "source"
+        }
+      }
+    },
+    "sections": {
+      "challenge": {
+        "kind": "challenge",
+        "title": "01. The Challenge",
+        "body": "Back when I was making games, free browser tools for frame-by-frame sprite-sheet creation were rare. I needed a lightweight way to sketch pixels, animate quickly, and export a clean sheet without installing heavy desktop software.",
+        "bullets": [
+          "Minimal, no-install tool that runs in the browser",
+          "True frame-by-frame workflow for pixel art",
+          "Accurate sprite-sheet export for engines and pipelines",
+          "Fast iteration with simple UI and hotkeys"
+        ]
+      },
+      "solution": {
+        "kind": "solution",
+        "title": "02. The Solution",
+        "body": [
+          "Built a pure JavaScript app using the HTML Canvas API with a timeline for frames, pixel-level tools (pen/erase), and export utilities to generate sprite sheets compatible with common game workflows."
+        ],
+        "pillars": [
+          {
+            "label": "Canvas-Driven Editor",
+            "details": "Pixel-accurate drawing with pen/eraser, grid snapping, and per-frame previews."
+          },
+          {
+            "label": "Animation Timeline",
+            "details": "Add, duplicate, and reorder frames for quick iteration on walk/run/attack cycles."
+          },
+          {
+            "label": "Sprite-Sheet Export",
+            "details": "Export PNG sprite sheets (strip or grid) suitable for game engines and packed assets."
+          }
+        ]
+      },
+      "results": {
+        "kind": "results",
+        "title": "03. Results & Impact",
+        "intro": "PixelSheet streamlined my personal game art workflow and produced sprites used directly in my projects.",
+        "metrics": [
+          { "value": "Browser-only", "label": "No installs, runs anywhere" },
+          { "value": "PNG", "label": "Clean sprite-sheet export" },
+          { "value": "Faster loops", "label": "Quicker iterate-and-test cycle" },
+          { "value": "Lightweight", "label": "No framework or backend" }
+        ],
+        "testimonial": {
+          "quote": "I built PixelSheet to remove friction from sprite creation — it let me get animations into my games much faster.",
+          "author": "Abtahi Tajwar (creator)"
+        }
+      }
+    },
+    "tech_grid": [
+      { "group": "Canvas/Rendering", "items": ["HTML5 Canvas API", "Pixel tools", "Grid snap"] },
+      { "group": "Animation", "items": ["Frame timeline", "Duplicate/reorder frames"] },
+      { "group": "Export", "items": ["PNG sprite sheet (strip/grid)"] },
+      { "group": "UX", "items": ["Keyboard shortcuts", "Minimal UI"] },
+      { "group": "Hosting", "items": ["GitHub Pages"] }
+    ],
+    "navigation": {
+      "back": {
+        "label": "Back to All Projects",
+        "href": "/portfolio.html#projects"
+      }
+    }
+  }
+}
