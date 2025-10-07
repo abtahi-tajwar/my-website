@@ -89,6 +89,93 @@
   display: none !important;
 }
 
+/* ===== Certifications & Education: responsive simplification ===== */
+#education .background-pattern,
+#education > .absolute.inset-0 {
+  /* hide decorative gradient on small screens to reduce noise */
+  display: none;
+}
+
+/* Shared tweaks */
+#education .glass {
+  border-radius: 0.75rem;
+}
+
+/* Keep headings readable but compact on mobile */
+#education h2 { line-height: 1.15; }
+
+/* Make the main grid 1-col on mobile (already), 2-col on md+ handled via HTML tweak */
+
+/* Certification & Education cards */
+#education article {
+  padding: 1rem;
+}
+
+/* Compact header rows on mobile */
+#education .md-flex-row { gap: 0.5rem; }
+
+/* Hide secondary details on mobile */
+@media (max-width: 768px) {
+  /* Hide skills chips and credential line to declutter */
+  #education [data-vn-repeat$="skills as skill"],
+  #education [data-vn-ritem="{cert}.issuer"],
+  #education [data-vn-item="{cert}.id"] {
+    display: none !important;
+  }
+
+  /* Make action buttons full-width and stack */
+  #education .btn-primary-sm,
+  #education .btn-primary {
+    width: 100%;
+  }
+
+  /* Reduce heading sizes slightly */
+  #education h2 { font-size: 1.75rem; }
+  #education h3 { font-size: 1.125rem; }
+  #education h4 { font-size: 1rem; }
+
+  /* Trim long descriptions with a tidy clamp */
+  #education [data-vn-ritem="{ed}.description"] {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Tighten card spacing */
+  #education .glass.rounded-2xl.p-8 { padding: 1rem !important; }
+  #education .glass.rounded-xl.p-6 { padding: 0.875rem !important; }
+}
+
+/* Quick Stats grid: 2 cols on mobile, 4 on md+ (uses your utilities) */
+#education .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+@media (max-width: 360px) {
+  #education .stats-grid {
+    grid-template-columns: 1fr; /* very small screens */
+  }
+}
+
+@media (min-width: 768px) {
+  #education .stats-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* Optional: soften the tiny colored dots on mobile */
+@media (max-width: 768px) {
+  #education article > .w-2.h-2 {
+    margin-top: 0.25rem;
+    opacity: 0.7;
+  }
+}
+
+
 /* Desktop layout */
 @media (min-width: 768px) {
   /* 1) First item becomes a full-width hero */
@@ -125,3 +212,126 @@
     transform: translateX(-50%) !important;
   }
 }
+
+/* ===== Experience: mobile-first simplification ===== */
+@media (max-width: 768px) {
+  /* 0) Quiet the background and timeline chrome */
+  #experience > .absolute.inset-0 { display: none; }        /* hide decorative gradient */
+  #experience .timeline-line { display: none !important; }  /* no center line on mobile */
+  #experience .timeline-dot  { display: none !important; }  /* no dots on mobile */
+
+  /* 1) Make cards full-width, comfy, and compact */
+  #experience .timeline-content { margin: 0 !important; }
+  #experience .glass.rounded-2xl.p-8 { padding: 1rem !important; }
+  #experience .space-y-12 > * + * { margin-top: 1rem !important; }
+
+  /* 2) Trim typography for smaller screens */
+  #experience h2 { font-size: 1.75rem; line-height: 1.2; }
+  #experience h3 { font-size: 1.125rem; }
+  #experience .text-white-60.text-sm { font-size: 0.85rem; }
+
+  /* 3) Keep only the essentials in each job item
+        (role, company link, and duration).
+        Hide long lists to reduce scrolling. */
+  /* Key achievements list */
+  #experience [data-vn-repeat="{job}.keyAcheivements as ach"],
+  /* Technology chips */
+  #experience [data-vn-repeat="{job}.technologies as tech"],
+  /* Their section headings */
+  #experience h4:has(+ .space-y-2),
+  #experience h4:has(+ .flex.flex-wrap) {
+    display: none !important;
+  }
+
+  /* 4) Tighter header row & badges */
+  #experience .flex.flex-wrap.items-center.gap-2 { gap: 0.35rem !important; }
+  #experience .px-3.py-1.text-xs { padding: 0.25rem 0.5rem !important; }
+
+  /* 5) Spacing around the CTA */
+  #experience .mt-16 { margin-top: 1.5rem !important; }
+  #experience .glass.rounded-2xl.p-8.inline-block { padding: 1rem !important; }
+}
+
+/* ===== Experience: desktop keeps alternating timeline ===== */
+/* (Works with your existing timeline rules; no change needed for ≥768px) */
+
+
+/* ===== Currently Working On: mobile simplification ===== */
+@media (max-width: 768px) {
+  /* Hide heavy gradient background for performance */
+  #current-work > .absolute.inset-0 {
+    display: none;
+  }
+
+  /* Make grid 1 column */
+  #current-work .grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Simplify cards */
+  #current-work .work-card {
+    padding: 1rem !important;
+    border-radius: 0.75rem;
+  }
+
+  /* Hide multi-layer gradients inside cards */
+  #current-work .work-card > .absolute {
+    display: none !important;
+  }
+
+  /* Trim text */
+  #current-work h3,
+  #current-work h4 {
+    font-size: 1.1rem !important;
+    line-height: 1.3 !important;
+  }
+
+  #current-work p {
+    font-size: 0.9rem !important;
+    line-height: 1.5;
+  }
+
+  /* Limit long paragraphs */
+  #current-work p:not(.font-mono) {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Make tag chips wrap nicely and smaller */
+  #current-work .flex.flex-wrap.gap-2 span {
+    font-size: 0.75rem !important;
+    padding: 0.25rem 0.5rem !important;
+  }
+
+  /* Stack progress bar vertically */
+  #current-work .progress-bar,
+  #current-work .h-2 {
+    height: 0.4rem !important;
+  }
+
+  #current-work .mt-4.space-y-3 {
+    margin-top: 1rem !important;
+  }
+
+  /* Adjust card margins */
+  #current-work .p-6,
+  #current-work .p-8 {
+    padding: 1rem !important;
+  }
+
+  /* Simplify bottom terminal line */
+  #current-work .mt-8.text-center p {
+    font-size: 0.8rem;
+  }
+}
+
+/* Optional: slightly boost large screens to preserve Bento look */
+@media (min-width: 1024px) {
+  #current-work .work-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
