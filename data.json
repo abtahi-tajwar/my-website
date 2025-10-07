@@ -12,16 +12,17 @@
     "blog": "https://dev.to/abtahitajwar",
     "twitter": "https://x.com/abtahi_t",
     "resume": "https://drive.google.com/drive/folders/1QzDmnVmd-Y8DMl9PyVAj50YS5Ek_PVpN?usp=sharing",
-    "about": "Hi, I’m Abtahi — a Fullstack Web Developer passionate about building scalable applications and creative digital experiences. With expertise in React, Next.js, Laravel, and modern UI frameworks, I craft clean, performant, and user-focused solutions. Currently based in Canada, I’m blending my background in software engineering with my growing focus on cybersecurity and research.",
+    "about": "Software developer driven by clarity, creativity, and curiosity. I design systems that work beautifully — and securely — from first sketch to final deployment. Let’s skip the buzzwords and build something meaningful.",
     "professionalExperienceInYear": 3,
     "independentExperienceInYear": 7,
     "totalGithubStars": 90,
     "projectsCompleted": 10,
     "youtube": "https://www.youtube.com/@abtahi-tajwar",
     "description": [
-      "Hi, I’m Abtahi — a full-stack developer and problem solver who thrives at the intersection of clean design, scalable systems, and secure engineering practices. Over the past few years, I’ve built and led projects ranging from multi-tenant retail platforms to intuitive productivity tools, using technologies like React, Next.js, TypeScript, Tailwind, and Laravel. My approach to development is hands-on and iterative: I believe in building fast, learning from real users, and refining until the experience feels effortless.",
-      "I’ve worked on high-impact projects, including government-sponsored initiatives and enterprise-grade web platforms, where both performance and reliability were critical. I enjoy architecting solutions that not only solve immediate needs but can also evolve gracefully as businesses scale. Beyond my technical focus, I bring strong communication skills and a collaborative mindset, making me comfortable leading teams as well as diving deep into solo problem-solving.",
-      "Currently based in Canada, I’m also expanding into cybersecurity and research, with a vision to combine robust development practices with secure-by-default design. For me, building software isn’t just about shipping features — it’s about creating systems that are dependable, usable, and trusted."
+      "Hi, I’m Abtahi — a software developer who loves turning ideas into living systems that feel effortless to use. I’ve built everything from multi-tenant retail platforms to productivity tools and web ecosystems that quietly scale behind the scenes. My favorite part of any project isn’t the tech stack — it’s that moment when a rough concept starts feeling real.",
+      "I work across the stack (and sometimes beyond it) — React, Next.js, TypeScript, Python microservices, even a bit of C++ when things get low-level. I care less about the tools and more about solving the right problem cleanly, securely, and with intention. I build fast, test ideas with real people, and refine until it feels right.",
+      "I’ve led and contributed to projects that power government initiatives, enterprise platforms, and indie products alike — balancing performance, security, and design every step of the way. Whether I’m sketching a UI flow, optimizing a query, or debugging a socket connection at 2 a.m., I treat it as part of one craft: building systems people can trust.",
+      "Currently based in Toronto, Canada, I’m blending my background in software engineering with a growing focus on cybersecurity and research — exploring how to make “secure by default” the norm, not the exception. If that sounds like something you care about too, let’s talk. Worst case, we’ll swap ideas. Best case, we’ll build something meaningful."
     ],
     "location": "Toronto, ON"
   },
