@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="manifest" href="../../site.webmanifest">
+
+    <style>
+        :root {
+            --bg: #0b0f17;
+            --panel: #0f1626;
+            --panel-2: #0c1322;
+            --text: #e9eef7;
+            --muted: #a9b4c7;
+            --brand: #66d9e8;
+            --accent: #a5d6ff;
+            --good: #7ad97a;
+            --warn: #ffd166;
+            --bad: #ff7b7b;
+            --code-bg: #0a1220;
+            --border: #1e2a42;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            background: radial-gradient(1200px 800px at 20% -10%, #14203a 0%, var(--bg) 45%), linear-gradient(180deg, #0b0f17 0%, #0b0f17 100%);
+            color: var(--text);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 28px;
+        }
+
+        header.hero {
+            background: linear-gradient(180deg, rgba(165, 214, 255, 0.06), rgba(102, 217, 232, 0.03));
+            border: 1px solid var(--border);
+            padding: 28px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) inset;
+        }
+
+        .eyebrow {
+            color: var(--brand);
+            letter-spacing: .12em;
+            font-weight: 700;
+            font-size: .78rem;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 8px 0 6px;
+            font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: rgba(165, 214, 255, 0.05);
+            color: var(--accent);
+            font-size: .85rem;
+            margin-right: 8px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            margin-top: 22px;
+        }
+
+        @media (min-width: 900px) {
+            .grid {
+                grid-template-columns: 1.2fr .8fr;
+            }
+        }
+
+        section.card {
+            background: linear-gradient(180deg, rgba(10, 18, 32, 0.6), rgba(10, 18, 32, 0.95));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        section.card h2 {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        p {
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        ul {
+            margin: 8px 0 0 1.25rem;
+            line-height: 1.6;
+        }
+
+        .kvl {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 8px 16px;
+            border: 1px solid var(--border);
+            background: var(--panel);
+            padding: 14px;
+            border-radius: 12px;
+        }
+
+        .kvl div:nth-child(odd) {
+            color: var(--muted);
+        }
+
+        .code {
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px;
+            overflow: auto;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: .9rem;
+        }
+
+        pre {
+            margin: 0;
+            white-space: pre;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--border);
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: var(--panel);
+            color: var(--muted);
+            font-size: .85rem;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .video {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: #000;
+        }
+
+        .callout {
+            border: 1px solid var(--border);
+            background: linear-gradient(180deg, rgba(102, 217, 232, 0.06), rgba(10, 18, 32, 0.5));
+            padding: 14px;
+            border-radius: 12px;
+        }
+
+        .list-tags span {
+            display: inline-block;
+            margin: 4px 6px 0 0;
+            padding: 6px 10px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: rgba(165, 214, 255, 0.05);
+            color: var(--accent);
+            font-size: .82rem;
+        }
+
+        footer {
+            margin: 32px 0 14px;
+            color: var(--muted);
+            text-align: center;
+            font-size: .9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Fixed Background Elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute top-1/2 -left-40 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"
+            style="animation-delay: 2s;"></div>
+        <div class="absolute -bottom-40 right-1/3 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl animate-pulse"
+            style="animation-delay: 4s;"></div>
+    </div>
+
+    <div class="relative z-10">
+        <!-- Simplified Header -->
+        <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/20 border-b border-white/10">
+            <div class="max-w-6xl mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="/"
+                        class="flex items-center space-x-2 text-white/80 hover:text-white transition-colors duration-200 hover:bg-white/10 px-3 py-2 rounded-lg backdrop-blur-sm group">
+                        <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-200" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                        <span class="font-mono">Back to Portfolio</span>
+                    </a>
+
+                    <div class="flex items-center space-x-4">
+
+                        <a data-vn-if="{data.sidebar.links.source} != undefined"
+                            data-vn-bind-attr="href=data.sidebar.links.source.href" href="https://github.com"
+                            target="_blank" rel="noopener noreferrer"
+                            class="p-2 rounded-lg backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all duration-300 text-white/80 hover:text-white border border-white/20 hover:border-white/40">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                        </a>
+                        <a data-vn-if="{data.sidebar.links.live} != undefined" target="_blank"
+                            data-vn-bind-attr="href=data.sidebar.links.live.href" rel="noopener noreferrer"
+                            class="px-4 py-2 bg-gradient-to-r from-purple-500 to-cyan-500 text-white rounded-lg hover:from-purple-600 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl font-medium text-sm">
+                            View Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="pt-24 pb-20">
+            <div class="wrap">
+                <header class="hero">
+                    <div class="eyebrow">Case Study · Lab Experiment</div>
+                    <h1>Splunk × ASP.NET Core (Part 1)</h1>
+                    <p class="sub">Writing logs with <strong>Serilog</strong> in a containerized ASP.NET Core app and
+                        forwarding them to a <strong>remote Splunk</strong> instance via Universal Forwarder.</p>
+                    <div style="margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;">
+                        <span class="badge">SEIM</span>
+                        <span class="badge">Splunk</span>
+                        <span class="badge">Docker</span>
+                        <span class="badge">Serilog</span>
+                        <span class="badge">Splunk Universal Forwarder</span>
+                        <span class="badge">.NET 9</span>
+                    </div>
+                </header>
+
+                <div class="grid">
+                    <section class="card">
+                        <h2>Overview</h2>
+                        <p>
+                            This experiment explores how application-level logs flow from a containerized ASP.NET Core
+                            service into a remote Splunk instance.
+                            In Part 1, the focus is on generating application logs with Serilog and shipping them using
+                            a containerized Splunk Universal Forwarder (UF) to an indexer running on another laptop.
+                        </p>
+                        <div class="kvl" style="margin-top:12px;">
+                            <div>Author</div>
+                            <div>Abtahi Tajwar</div>
+                            <div>Scope</div>
+                            <div>Dev-vlog / Experiment (not a tutorial)</div>
+                            <div>Outcome</div>
+                            <div>End-to-end log ingestion confirmed (app → UF → indexer)</div>
+                            <div>Timeline</div>
+                            <div>Single session</div>
+                        </div>
+                        <div class="callout" style="margin-top:14px;">
+                            <strong>Key Win:</strong> Solved container platform mismatch (arm64 host vs amd64 UF image),
+                            license acceptance envs for UF, and volume/permissions to make UF read logs reliably.
+                        </div>
+                    </section>
+
+                    <section class="card">
+                        <h2>Demo Video</h2>
+                        <div class="video">
+                            <iframe width="560" height="315"
+                                src="https://www.youtube.com/embed/0cBzvOGuhYM?si=7pXKKBij97owLtQo"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <p class="muted" style="margin-top:8px;">Part 1 · Serilog → Splunk UF → Remote Splunk indexer
+                        </p>
+                    </section>
+                </div>
+
+                <section class="card" style="margin-top:18px;">
+                    <h2>Architecture (Part 1)</h2>
+                    <p><em>Minimal viable pipeline to validate ingestion.</em></p>
+                    <div class="code">
+                        <pre>
+[ ASP.NET Core (Docker) ] --writes--> [/app/Logs/app-YYYY-MM-DD.log]
+            │
+            └─(shared Docker volume: app-logs)
+                │
+[ Splunk Universal Forwarder (Docker, amd64) ] --TCP 9997--> [ Splunk Indexer (remote laptop) ]
+      </pre>
+                    </div>
+                    <div class="list-tags" style="margin-top:10px;">
+                        <span>single-writer file sink</span>
+                        <span>shared volume</span>
+                        <span>HEC not used (UF to 9997)</span>
+                        <span>custom sourcetype: <code>app:fleetingoffers</code></span>
+                    </div>
+                </section>
+
+                <section class="card" style="margin-top:18px;">
+                    <h2>Implementation Notes</h2>
+                    <h3>Serilog (file sink)</h3>
+                    <div class="code">
+                        <pre>
+// Packages
+// dotnet add package Serilog.Sinks.File
+// dotnet add package Serilog.Extensions.Logging
+
+Directory.CreateDirectory("/app/Logs");
+Log.Logger = new LoggerConfiguration()
+  .MinimumLevel.Information()
+  .WriteTo.File(
+    "/app/Logs/app-.log",
+    rollingInterval: RollingInterval.Day,
+    retainedFileCountLimit: 7,
+    fileSizeLimitBytes: 10_000_000,
+    rollOnFileSizeLimit: true,
+    shared: true)
+  .CreateLogger();
+
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(Log.Logger, dispose: true);
+      </pre>
+                    </div>
+
+                    <h3 style="margin-top:16px;">Docker Compose (core bits)</h3>
+                    <div class="code">
+                        <pre>
+services:
+  app:
+    build: .
+    container_name: fleetingoffers_api
+    volumes:
+      - app-logs:/app/Logs
+
+  splunk-uf:
+    image: splunk/universalforwarder:latest
+    platform: linux/amd64          # host is arm64; UF image pinned to amd64
+    container_name: splunk-uf
+    environment:
+      - SPLUNK_GENERAL_TERMS=--accept-sgt-current-at-splunk-com
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_PASSWORD=${Splunk_Password}
+      - SPLUNK_CMD=add forward-server ${Splunk_Host}:9997 -auth ${Splunk_Username}:${Splunk_Password}
+      - SPLUNK_ADD=monitor /mnt/logs -index ${Splunk_Index} -sourcetype app:fleetingoffers
+    volumes:
+      - uf-etc:/opt/splunkforwarder/etc
+      - uf-var:/opt/splunkforwarder/var
+      - app-logs:/mnt/logs:ro
+
+volumes:
+  uf-etc:
+  uf-var:
+  app-logs:
+      </pre>
+                    </div>
+
+                    <h3 style="margin-top:16px;">Troubleshooting Highlights</h3>
+                    <ul>
+                        <li><strong>UF exits with code 1 (license):</strong> add <code>SPLUNK_GENERAL_TERMS</code> and
+                            <code>SPLUNK_START_ARGS</code>.</li>
+                        <li><strong>"no matching manifest for linux/arm64":</strong> set
+                            <code>platform: linux/amd64</code> for UF.</li>
+                        <li><strong>Permission errors via CLI:</strong> exec as <code>-u splunk</code> when running UF
+                            commands.</li>
+                        <li><strong>Forwarder not active:</strong> on indexer, enable a receiving port <code>9997</code>
+                            and verify <code>list forward-server</code>.</li>
+                    </ul>
+                </section>
+
+                <section class="card" style="margin-top:18px;">
+                    <h2>Validation & Results</h2>
+                    <ul>
+                        <li>UF shows <span class="pill">Active forwards → <strong>${Splunk_Host}:9997</strong></span>
+                        </li>
+                        <li>Monitors includes <span class="pill"><code>/mnt/logs</code></span> mapped from the app’s
+                            <code>/app/Logs</code>.</li>
+                        <li>Events arrive in Splunk index <span class="pill"><strong>${Splunk_Index}</strong></span>
+                            with sourcetype <span class="pill"><code>app:fleetingoffers</code></span>.</li>
+                    </ul>
+                    <p class="muted">Proof-of-life complete: end-to-end ingestion working across machines.</p>
+                </section>
+
+                <section class="card" style="margin-top:18px;">
+                    <h2>Lessons Learned</h2>
+                    <ul>
+                        <li>Container platform mismatches are subtle—pinning UF to <code>linux/amd64</code> is an easy
+                            fix on Apple Silicon.</li>
+                        <li>Persist UF state (<code>uf-etc</code>, <code>uf-var</code>) so it doesn’t re-onboard every
+                            restart.</li>
+                        <li>Keep file sink output parseable (consider compact JSON) to power downstream analysis.</li>
+                        <li>Data protection warnings in ASP.NET containers are normal unless you persist keys.</li>
+                    </ul>
+                </section>
+
+                <section class="card" style="margin-top:18px;">
+                    <h2>Next (Part 2+)</h2>
+                    <ul>
+                        <li>Add a Python mini-rules engine to correlate events (e.g., brute-force attempts →
+                            hints/alerts).</li>
+                        <li>Switch app logs to JSON and enrich with <code>endpoint</code>, <code>verb</code>,
+                            <code>user</code>, <code>latency</code>.</li>
+                        <li>Consider Splunk HEC for direct JSON ingestion (bypass UF for specific streams).</li>
+                        <li>Dashboards & saved searches: failures by IP, P95 latency by endpoint, anomaly spikes.</li>
+                    </ul>
+                </section>
+
+                <footer>
+                    ©
+                    <script>document.write(new Date().getFullYear())</script> Abtahi Tajwar · Lab Experiment — Part 1
+                </footer>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>
