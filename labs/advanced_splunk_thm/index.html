@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Case Study · TryHackMe — Advanced Splunk Module</title>
+    <meta name="description"
+        content="A practical case study reflecting on completing the TryHackMe Advanced Splunk module—covering advanced SPL, SOC lab setup on Windows & Linux, dashboards/reports, data manipulation via props/transforms, and an end-to-end investigation project.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #071126;
+            --panel: #0c1422;
+            --muted: #9fb0c9;
+            --text: #e6eef8;
+            --accent: #66d9e8;
+            --border: #18304a;
+            --grad: linear-gradient(180deg, rgba(102, 217, 232, .06), rgba(10, 18, 32, .65));
+            --code: #04101a;
+        }
+
+        body {
+            margin: 0;
+            background: radial-gradient(1200px 800px at 10% -10%, #11273b 0%, var(--bg) 45%);
+            color: var(--text);
+            font-family: Inter, system-ui, -apple-system;
+            line-height: 1.65
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: 32px auto;
+            padding: 28px
+        }
+
+        header {
+            padding: 22px;
+            border-radius: 14px;
+            background: var(--grad);
+            border: 1px solid var(--border)
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-size: .78rem
+        }
+
+        h1 {
+            font-size: clamp(1.4rem, 2.6vw, 2rem);
+            margin: 6px 0 0
+        }
+
+        .sub {
+            color: var(--muted);
+            margin-top: 8px
+        }
+
+        .badge {
+            display: inline-block;
+            margin: 8px 8px 0 0;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(165, 214, 255, .03);
+            border: 1px solid var(--border);
+            color: var(--accent);
+            font-size: .85rem
+        }
+
+        section.card {
+            background: linear-gradient(180deg, rgba(6, 14, 24, .45), rgba(6, 12, 20, .85));
+            border: 1px solid var(--border);
+            padding: 18px;
+            border-radius: 12px;
+            margin-top: 18px
+        }
+
+        section.card h2 {
+            margin: 0 0 10px
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .grid {
+            display: grid;
+            gap: 18px
+        }
+
+        @media(min-width:980px) {
+            .grid {
+                grid-template-columns: 1.15fr .85fr;
+                align-items: start
+            }
+        }
+
+        .code {
+            background: var(--code);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px;
+            overflow: auto;
+            font-family: JetBrains Mono, ui-monospace, monospace;
+            font-size: .9rem
+        }
+
+        pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-break: break-word
+        }
+
+        .kvl {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 8px 16px;
+            padding: 12px;
+            border-radius: 10px;
+            background: rgba(12, 18, 28, .35);
+            border: 1px solid rgba(255, 255, 255, .03)
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 8px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: rgba(165, 214, 255, .03);
+            color: var(--muted);
+            font-size: .82rem;
+            margin: 4px 6px 0 0
+        }
+
+        .callout {
+            background: rgba(255, 255, 255, .03);
+            border: 1px dashed var(--border);
+            border-radius: 12px;
+            padding: 12px
+        }
+
+        a {
+            color: var(--accent)
+        }
+
+        footer {
+            margin-top: 26px;
+            color: var(--muted);
+            font-size: .9rem;
+            text-align: center
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- Simplified Header -->
+        <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/20 border-b border-white/10">
+            <div class="max-w-6xl mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="/"
+                        class="flex items-center space-x-2 text-white/80 hover:text-white transition-colors duration-200 hover:bg-white/10 px-3 py-2 rounded-lg backdrop-blur-sm group">
+                        <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-200" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                        <span class="font-mono">Back to Portfolio</span>
+                    </a>
+
+                    <div class="flex items-center space-x-4">
+
+                        <!-- <a data-vn-if="{data.sidebar.links.source} != undefined"
+                            data-vn-bind-attr="href=data.sidebar.links.source.href" href="https://github.com"
+                            target="_blank" rel="noopener noreferrer"
+                            class="p-2 rounded-lg backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all duration-300 text-white/80 hover:text-white border border-white/20 hover:border-white/40">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                        </a> -->
+                        <a href="https://tryhackme.com/p/abtahitajwar" data-vn-if="{data.sidebar.links.live} != undefined"
+                            target="_blank" data-vn-bind-attr="href=data.sidebar.links.live.href"
+                            rel="noopener noreferrer"
+                            class="px-4 py-2 bg-gradient-to-r from-purple-500 to-cyan-500 text-white rounded-lg hover:from-purple-600 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl font-medium text-sm">
+                            View My Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div style="margin-top: 150px">
+            <div class="eyebrow">Case Study — Learning Log</div>
+            <h1>TryHackMe: Advanced Splunk — From SPL Mastery to an End-to-End SOC Lab</h1>
+            <p class="sub">
+                This page documents my completion of the <strong>TryHackMe · Advanced Splunk</strong> module. It focuses
+                on five pillars:
+                <em>Advanced SPL</em>, <em>end-to-end SOC lab setup on Windows & Linux</em>,
+                <em>custom dashboards & reports</em>, <em>data manipulation with custom stanzas</em>,
+                and a <em>capstone investigation</em> where I retrieved and analyzed a full report.
+                It’s a reflective case study, not a tutorial.
+            </p>
+            <div>
+                <span class="badge">Advanced SPL</span>
+                <span class="badge">Windows & Linux SOC Lab</span>
+                <span class="badge">Dashboards & Reports</span>
+                <span class="badge">props.conf / transforms.conf</span>
+                <span class="badge">Capstone Investigation</span>
+            </div>
+        </div>
+
+        <div class="grid">
+            <main>
+
+                <section class="card">
+                    <h2>Overview</h2>
+                    <div class="kvl">
+                        <div class="muted">Track</div>
+                        <div>TryHackMe — Advanced Splunk (module)</div>
+                        <div class="muted">Focus</div>
+                        <div>Detection engineering, data engineering in Splunk, analyst workflows</div>
+                        <div class="muted">Environment</div>
+                        <div>Mixed Windows & Linux lab, Splunk (Indexer + Search Head), Universal Forwarder/HEC</div>
+                        <div class="muted">Outcome</div>
+                        <div>Production-like ingestion pipeline, reusable SPL, dashboards, and a documented end-to-end
+                            analysis</div>
+                    </div>
+                    <p style="margin-top:10px">My goal was to move beyond “can search logs” to “can <em>shape</em> data,
+                        <em>model</em> detections, and <em>package</em> outcomes.” The module’s rooms guided core
+                        topics; I expanded each with extra experiments that mirror a lightweight SOC workflow.</p>
+                </section>
+
+                <section class="card">
+                    <h2>What I learned</h2>
+                    <ul>
+                        <li><strong>Advanced SPL:</strong> mastering <code>stats</code>, <code>eventstats</code>,
+                            <code>streamstats</code>, <code>transaction</code>, <code>bin</code>, <code>eval</code>,
+                            <code>rex</code>, <code>spath</code>, and conditional aggregations to transform raw events
+                            into evidence.</li>
+                        <li><strong>End-to-end SOC lab (Windows & Linux):</strong> building a dual-OS lab, normalizing
+                            fields, and aligning with CIM where practical to keep detections portable.</li>
+                        <li><strong>Custom dashboards & reports:</strong> operationalizing searches into panels, alerts,
+                            and scheduled reports that answer analyst questions quickly.</li>
+                        <li><strong>Data manipulation:</strong> shaping messy data via
+                            <code>props.conf</code>/<code>transforms.conf</code>, line-breaking, timestamping, field
+                            extractions, lookups, and sourcetype strategy.</li>
+                        <li><strong>Capstone:</strong> retrieving a multi-section report, correlating disparate data
+                            sources, and producing a compact narrative with indicators, scope, timeline, and recommended
+                            actions.</li>
+                    </ul>
+                </section>
+
+                <section class="card">
+                    <h2>Lab topology (Windows + Linux)</h2>
+                    <p class="muted">High-level components used during the module and my extensions:</p>
+                    <ul>
+                        <li><strong>Splunk Core:</strong> Indexer + Search Head (single instance for the lab, but
+                            workflows mimic distributed setups).</li>
+                        <li><strong>Ingestion:</strong> Universal Forwarder on Windows/Linux; occasional HEC tests for
+                            JSON sources.</li>
+                        <li><strong>Sources:</strong> Authentication logs, IIS/Apache access logs, app logs, and
+                            simulated auth failures for detection drills.</li>
+                        <li><strong>Normalization:</strong> Targeted field extractions and sourcetypes designed for
+                            consistent SPL across OSes.</li>
+                    </ul>
+                    <div class="callout" style="margin-top:10px">
+                        <strong>Design choice:</strong> keep sourcetypes stable and descriptive; use add-on-like naming
+                        where it improves portability (e.g., <code>win:security</code>, <code>linux:sshd</code>,
+                        <code>web:access</code>).
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h2>Advanced SPL — representative patterns</h2>
+                    <p class="muted">A few patterns I leaned on repeatedly during investigations:</p>
+                    <div class="code">
+                        <pre>
+# 1) Spike detection (failed auths per user per 5 min)
+index=sec auth_status=failed
+| bin _time span=5m
+| stats count AS fails, values(src) AS src_ips by _time, user
+| where fails >= 5
+| sort -_time -fails
+
+# 2) Sessionization without transaction (streamstats)
+index=web sourcetype=web:access status>=500
+| rex field=uri_path "/(?&lt;endpoint&gt;[^?]+)"
+| streamstats current=f window=1 reset_on_change=t by clientip
+    earliest(_time) AS prev_time, last(endpoint) AS prev_ep
+| eval gap = _time - prev_time
+| where gap &lt;= 60
+| stats count AS bursts, values(endpoint) AS endpoints by clientip
+| where bursts &gt;= 3
+
+# 3) Outlier IPs per user compared to typical geo
+index=sec sourcetype=linux:sshd action=success
+| iplocation src
+| stats dc(Country) AS geo_diversity, values(Country) AS geos by user
+| where geo_diversity &gt; 1
+
+# 4) JSON parsing (HEC or app logs)
+index=app sourcetype=app:json
+| spath
+| stats count BY level, endpoint, user
+
+# 5) Multi-stage correlation (failed logins followed by success)
+index=sec (action=failed OR action=success) user=*
+| stats latest(eval(if(action="success",_time,null()))) AS t_success,
+        latest(eval(if(action="failed",_time,null())))  AS t_failed
+  by user, src
+| where t_success &gt;= t_failed AND (t_success - t_failed) &lt;= 600
+| eval comment="Rapid success after failures — potential brute-force then valid creds"
+          </pre>
+                    </div>
+                    <p style="margin-top:10px">These patterns compress noisy logs into analytical views (spikes,
+                        sessions, outliers, and sequences). They’re easy to promote into dashboard panels and alerts.
+                    </p>
+                </section>
+
+                <section class="card">
+                    <h2>Dashboards & scheduled reports</h2>
+                    <p>I translated recurring questions into panels—“Where are failures spiking?”, “Which endpoints
+                        return 5xx most?”, “Which users changed geo?”. Then I backed these with <em>saved searches</em>
+                        and <em>scheduled reports</em> to maintain rhythm.</p>
+                    <ul class="muted">
+                        <li><strong>Auth Health:</strong> failure spikes by user/IP; success-after-fail series.</li>
+                        <li><strong>Web/API Reliability:</strong> 5xx by endpoint over time; outlier client IPs.</li>
+                        <li><strong>Geo & Velocity:</strong> country distribution by user; basic “impossible travel”
+                            approximations.</li>
+                    </ul>
+                    <div class="code" style="margin-top:10px">
+                        <pre>
+# Panel: 5xx by endpoint (1m)
+index=web sourcetype=web:access status&gt;=500
+| rex field=uri_path "/(?&lt;endpoint&gt;[^?]+)"
+| timechart span=1m count BY endpoint limit=10
+          </pre>
+                    </div>
+                    <div class="callout" style="margin-top:10px">
+                        <strong>Packaging tip:</strong> keep searches parameterized (e.g., <code>$endpoint$</code>,
+                        <code>$window$</code>) to reuse panels across services and shorten iteration time.
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h2>Data manipulation — props.conf / transforms.conf</h2>
+                    <p>Real logs are messy. I used custom stanzas to fix timestamps, break multiline events, and extract
+                        fields. A few distilled examples (paths vary by deployment):</p>
+                    <h3 class="muted" style="margin-top:8px">props.conf</h3>
+                    <div class="code">
+                        <pre>
+# Linux SSHD (example)
+[linux:sshd]
+TIME_PREFIX = ^\w{3}\s+\d+\s+\d\d:\d\d:\d\d\s
+MAX_TIMESTAMP_LOOKAHEAD = 32
+LINE_BREAKER = ([\r\n]+)
+SHOULD_LINEMERGE = false
+TRUNCATE = 20000
+REPORT-sshd-fields = sshd-fields
+
+# Web access (custom path extraction)
+[web:access]
+TIME_FORMAT = %d/%b/%Y:%H:%M:%S %z
+TIME_PREFIX = \[
+SHOULD_LINEMERGE = false
+REPORT-web-fields = web-fields, web-useragent
+          </pre>
+                    </div>
+
+                    <h3 class="muted" style="margin-top:10px">transforms.conf</h3>
+                    <div class="code">
+                        <pre>
+[sshd-fields]
+REGEX = ^(?&lt;host&gt;\S+)\s+sshd\[\d+\]:\s(?&lt;action&gt;Failed|Accepted).*?from\s(?&lt;src&gt;\S+)\s.*?for\s(?&lt;user&gt;\S+)
+FORMAT = src::$1 user::$2 action::$3
+WRITE_META = false
+
+[web-fields]
+REGEX = ^(?&lt;clientip&gt;\S+)\s\S+\s\S+\s\[(?&lt;time&gt;[^\]]+)\]\s"(?&lt;method&gt;\S+)\s(?&lt;uri_path&gt;\S+).*"\s(?&lt;status&gt;\d{3})\s(?&lt;bytes&gt;\d+)
+FORMAT = clientip::$1 method::$2 uri_path::$3 status::$4 bytes::$5
+
+[web-useragent]
+REGEX = "([^"]+)"\s\d+\s\d+\s"([^"]*)"\s"(?&lt;useragent&gt;[^"]+)"$
+FORMAT = useragent::$1
+          </pre>
+                    </div>
+                    <p style="margin-top:10px">Once fields are clean, SPL becomes dramatically simpler, and dashboards
+                        stabilize.</p>
+                </section>
+
+                <section class="card">
+                    <h2>Capstone — retrieve & analyze a full report</h2>
+                    <p>I treated the final exercise as a mini-IR: pull a multi-section report (auth, web, and system
+                        events), normalize, and produce a short, defensible narrative.</p>
+                    <ol>
+                        <li><strong>Scope & Data:</strong> Defined target users, time window, and sources (Linux SSHD,
+                            Windows Security, web access logs).</li>
+                        <li><strong>Normalization:</strong> Ensured fields like <code>user</code>, <code>src</code>,
+                            <code>endpoint</code>, <code>status</code>, <code>action</code> were consistently extracted.
+                        </li>
+                        <li><strong>Correlation:</strong> Linked failure spikes to eventual successes, mapped web 5xx
+                            spikes to deployment notes, and paired SSH successes to new geo.</li>
+                        <li><strong>Findings:</strong> Flagged rapid success-after-fail for two accounts, identified a
+                            noisy endpoint causing 5xx bursts, and noted cross-geo login for one user.</li>
+                        <li><strong>Output:</strong> A 2-page summary with indicators (IPs, users, endpoints),
+                            timelines, and recommended mitigations.</li>
+                    </ol>
+                    <div class="code" style="margin-top:10px">
+                        <pre>
+# Quick stitched view: failed→success within 10 min + 5xx adjacency
+(index=sec sourcetype=linux:sshd (action=failed OR action=success))
+OR (index=web sourcetype=web:access status&gt;=500)
+| eval kind=case(sourcetype="linux:sshd","auth", sourcetype="web:access","web", true(),"other")
+| transaction user maxpause=600 keepevicted=t startswith=eval(kind="auth" AND action="failed") endswith=eval(kind="auth" AND action="success")
+| eventstats count AS web5xx by user
+| table _time user src kind action uri_path status web5xx duration
+          </pre>
+                    </div>
+                    <div class="callout" style="margin-top:10px">
+                        <strong>IR habit:</strong> after searches stabilize, capture them as saved searches and export a
+                        PDF/HTML snapshot alongside raw indicators. Future me will thank present me.
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h2>Challenges & resolutions</h2>
+                    <ul>
+                        <li><strong>Timestamp drift / parsing:</strong> fixed with explicit <code>TIME_PREFIX</code> and
+                            <code>TIME_FORMAT</code> to avoid mis-bucketed events.</li>
+                        <li><strong>Multiline events:</strong> disabled merge for line-oriented sources; added dedicated
+                            <code>LINE_BREAKER</code> where needed.</li>
+                        <li><strong>Noisy sourcetypes:</strong> split access/error into distinct sourcetypes; kept
+                            props/transforms readable.</li>
+                        <li><strong>Windows vs Linux parity:</strong> favored common field names so a single SPL works
+                            across OS families.</li>
+                    </ul>
+                </section>
+
+                <section class="card">
+                    <h2>What’s next</h2>
+                    <ol>
+                        <li>Adopt structured JSON logs for services; ingest via HEC for lower latency and richer
+                            context.</li>
+                        <li>Promote repeatable detections to scheduled alerts with throttling and adaptive thresholds.
+                        </li>
+                        <li>Expand geo/velocity detections with ASN enrichment and basic risk scoring.</li>
+                        <li>Package props/transforms as a mini TA (technology add-on) with versioned changes.</li>
+                    </ol>
+                </section>
+
+
+            </main>
+
+            <aside>
+                <section class="card">
+                    <h2>At a glance</h2>
+                    <p class="muted">Five takeaways in one block:</p>
+                    <div class="tag">Advanced SPL building blocks</div>
+                    <div class="tag">Dual-OS SOC lab patterns</div>
+                    <div class="tag">Answerable dashboards</div>
+                    <div class="tag">props/transforms mastery</div>
+                    <div class="tag">Narrative-first reporting</div>
+                </section>
+
+                <section class="card">
+                    <h2>Cheatsheet</h2>
+                    <div class="code">
+                        <pre>
+# Frequent SPL helpers
+| rex field=_raw "user=(?&lt;user&gt;\S+)"
+| bin _time span=5m
+| stats count by user, src
+| timechart span=1m count by status
+| eventstats avg(count) AS avg_c, stdev(count) AS sd_c
+| where count &gt; avg_c + (2 * sd_c)
+          </pre>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h2>Field design (mini-CIM)</h2>
+                    <p class="muted">I kept these names consistent across sources:</p>
+                    <ul>
+                        <li><code>user</code>, <code>src</code>, <code>dest</code>, <code>endpoint</code>,
+                            <code>status</code>, <code>action</code>, <code>method</code>, <code>bytes</code></li>
+                        <li>Optional enrichments: <code>Country</code>, <code>ASN</code>, <code>vendor_product</code>,
+                            <code>signature</code></li>
+                    </ul>
+                </section>
+
+                <section class="card">
+                    <h2>Exportables</h2>
+                    <ul>
+                        <li>Saved searches for auth spikes, 5xx bursts, and success-after-fail.</li>
+                        <li>Dashboard JSON with parametric tokens.</li>
+                        <li>props/transforms pair for <code>linux:sshd</code> and <code>web:access</code>.</li>
+                        <li>Capstone report (PDF/HTML) with indicators table.</li>
+                    </ul>
+                </section>
+            </aside>
+        </div>
+
+        <footer>
+            ©
+            <script>document.write(new Date().getFullYear())</script> Abtahi Tajwar · TryHackMe: Advanced Splunk — Case
+            Study
+        </footer>
+    </div>
+</body>
+
+</html>
