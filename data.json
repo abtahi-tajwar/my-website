@@ -28,6 +28,14 @@
   },
   "certifications": [
     {
+      "name": "Google Cybersecurity",
+      "issuer": "Google",
+      "completionDate": "26th November, 2025",
+      "id": "2LYXJ0GPJ7LY",
+      "url": "https://www.coursera.org/account/accomplishments/specialization/2LYXJ0GPJ7LY",
+      "skills": ["SIEM", "Linux", "Blue Teaming", "Python", "Network Analysis", "Network Security", "Risk Management", "Threat Analysis"]
+    },
+    {
       "name": "Jr Penetration Tester - Certificate of completion",
       "issuer": "Tryhackme",
       "completionDate": "26th September, 2025",
