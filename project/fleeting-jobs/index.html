@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fleeting Jobs Backend | Case Study</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="manifest" href="../../site.webmanifest">
+
+    <style>
+
+        :root{
+
+            --bg:#0b0f17;
+            --panel:#0f1626;
+            --panel2:#101a2d;
+
+            --border:#1f2d47;
+
+            --text:#edf2fb;
+            --muted:#a8b4c8;
+
+            --brand:#66d9e8;
+            --accent:#9ed5ff;
+
+            --code:#09121f;
+
+        }
+
+        *{
+            box-sizing:border-box;
+        }
+
+        body{
+
+            margin:0;
+
+            background:
+                radial-gradient(circle at top left,#15233f 0%,#0b0f17 42%),
+                #0b0f17;
+
+            color:var(--text);
+
+            font-family:Inter,sans-serif;
+
+        }
+
+        a{
+            color:var(--accent);
+            text-decoration:none;
+        }
+
+        a:hover{
+            text-decoration:underline;
+        }
+
+        .wrap{
+
+            max-width:1150px;
+            margin:auto;
+            padding:30px;
+
+        }
+
+        .hero{
+
+            border:1px solid var(--border);
+
+            border-radius:18px;
+
+            padding:30px;
+
+            background:linear-gradient(
+                180deg,
+                rgba(102,217,232,.06),
+                rgba(102,217,232,.02)
+            );
+
+        }
+
+        .eyebrow{
+
+            color:var(--brand);
+
+            text-transform:uppercase;
+
+            letter-spacing:.15em;
+
+            font-weight:700;
+
+            font-size:.8rem;
+
+        }
+
+        h1{
+
+            margin:10px 0;
+
+            font-size:clamp(2rem,4vw,3rem);
+
+        }
+
+        .sub{
+
+            color:var(--muted);
+
+            line-height:1.6;
+
+            max-width:850px;
+
+        }
+
+        .badge{
+
+            display:inline-block;
+
+            margin-top:12px;
+            margin-right:8px;
+
+            border:1px solid var(--border);
+
+            border-radius:999px;
+
+            padding:7px 12px;
+
+            background:rgba(255,255,255,.04);
+
+            color:var(--accent);
+
+            font-size:.85rem;
+
+        }
+
+        .grid{
+
+            display:grid;
+
+            gap:20px;
+
+            margin-top:24px;
+
+        }
+
+        @media(min-width:900px){
+
+            .grid{
+
+                grid-template-columns:1.3fr .7fr;
+
+            }
+
+        }
+
+        .card{
+
+            background:linear-gradient(
+                180deg,
+                rgba(16,26,45,.65),
+                rgba(10,18,32,.95)
+            );
+
+            border:1px solid var(--border);
+
+            border-radius:16px;
+
+            padding:22px;
+
+        }
+
+        .card h2{
+
+            margin-top:0;
+
+        }
+
+        p{
+
+            line-height:1.7;
+
+        }
+
+        .muted{
+
+            color:var(--muted);
+
+        }
+
+        .summary{
+
+            display:grid;
+
+            grid-template-columns:170px 1fr;
+
+            gap:10px 18px;
+
+            background:var(--panel);
+
+            border:1px solid var(--border);
+
+            border-radius:12px;
+
+            padding:16px;
+
+            margin-top:18px;
+
+        }
+
+        .summary div:nth-child(odd){
+
+            color:var(--muted);
+
+        }
+
+        .video{
+
+            width:100%;
+
+            aspect-ratio:16/9;
+
+            border-radius:12px;
+
+            overflow:hidden;
+
+            border:1px solid var(--border);
+
+            background:black;
+
+        }
+
+        .callout{
+
+            margin-top:18px;
+
+            border-radius:12px;
+
+            border:1px solid var(--border);
+
+            padding:16px;
+
+            background:rgba(102,217,232,.05);
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="fixed inset-0 overflow-hidden pointer-events-none">
+
+    <div class="absolute -top-40 -right-40 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl"></div>
+
+    <div class="absolute top-1/2 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
+
+</div>
+
+<div class="relative z-10">
+
+<header class="fixed top-0 left-0 right-0 backdrop-blur-md bg-black/25 border-b border-white/10 z-50">
+
+<div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+
+<a href="/"
+class="flex items-center space-x-2 text-white/80 hover:text-white">
+
+<svg class="w-5 h-5"
+fill="none"
+stroke="currentColor"
+viewBox="0 0 24 24">
+
+<path
+stroke-linecap="round"
+stroke-linejoin="round"
+stroke-width="2"
+d="M15 19l-7-7 7-7"/>
+
+</svg>
+
+<span class="font-mono">
+Back to Portfolio
+</span>
+
+</a>
+
+<div class="flex gap-3">
+
+<a href="https://github.com/abtahi-tajwar/fleeting-jobs-backend.git"
+target="_blank"
+class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20">
+
+GitHub
+
+</a>
+
+<!-- <a href="YOUR_YOUTUBE_LINK"
+target="_blank"
+class="px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-white">
+
+Watch Demo
+
+</a> -->
+
+</div>
+
+</div>
+
+</header>
+
+<main class="pt-24 pb-20">
+
+<div class="wrap">
+
+<header class="hero">
+
+<div class="eyebrow">
+
+Case Study · Distributed Backend System
+
+</div>
+
+<h1>
+
+Fleeting Jobs Backend
+
+</h1>
+
+<p class="sub">
+
+Fleeting Jobs is a distributed job aggregation platform designed to automate the collection of job postings from modern company career portals.
+
+Rather than performing long-running browser automation inside the web application, the system delegates scraping to asynchronous Python workers while Spring Boot orchestrates persistence, messaging, and API access. RabbitMQ acts as the communication backbone, enabling loose coupling between services and significantly reducing API response times.
+
+</p>
+
+<div>
+
+<span class="badge">Spring Boot</span>
+<span class="badge">RabbitMQ</span>
+<span class="badge">PostgreSQL</span>
+<span class="badge">FastAPI</span>
+<span class="badge">Playwright</span>
+<span class="badge">BeautifulSoup</span>
+<span class="badge">Docker</span>
+<span class="badge">Distributed Systems</span>
+
+</div>
+
+</header>
+
+<div class="grid">
+
+<section class="card">
+
+<h2>
+
+Overview
+
+</h2>
+
+<p>
+
+Modern career websites are increasingly built with JavaScript and often require full browser automation to extract structured job information reliably.
+
+Fleeting Jobs separates orchestration from execution by allowing Spring Boot to coordinate asynchronous Python workers responsible for Playwright-based scraping. Job data is streamed back through RabbitMQ, where Spring persists listings into PostgreSQL without blocking incoming HTTP requests.
+
+</p>
+
+<div class="summary">
+
+<div>Author</div>
+<div>Abtahi Tajwar</div>
+
+<div>Architecture</div>
+<div>Distributed Services</div>
+
+<div>Backend</div>
+<div>Spring Boot + RabbitMQ + PostgreSQL</div>
+
+<div>Worker</div>
+<div>FastAPI + Playwright + BeautifulSoup</div>
+
+<div>Status</div>
+<div>Active Development</div>
+
+</div>
+
+<div class="callout">
+
+<strong>Key Achievement</strong>
+
+<br><br>
+
+Redesigned the scraping workflow from a synchronous request/response model into an asynchronous event-driven pipeline, dramatically improving responsiveness while keeping backend services loosely coupled.
+
+</div>
+
+</section>
+
+<!-- <section class="card">
+
+<h2>
+
+Demo
+
+</h2>
+
+<div class="video">
+
+<iframe
+width="560"
+height="315"
+src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+title="YouTube video player"
+frameborder="0"
+allowfullscreen>
+
+</iframe>
+
+</div>
+
+<p class="muted" style="margin-top:12px;">
+
+Distributed job aggregation using Spring Boot, RabbitMQ, FastAPI and Playwright.
+
+</p>
+
+</section> -->
+
+</div>
+                <section class="card" style="margin-top:20px;">
+
+                    <h2>System Architecture</h2>
+
+                    <p class="muted">
+                        Fleeting Jobs follows a distributed architecture where Spring Boot coordinates work while
+                        Python workers perform browser automation. RabbitMQ provides asynchronous communication
+                        between services, allowing each component to scale independently.
+                    </p>
+
+                    <div class="code">
+<pre>
+
+                 ┌───────────────────────┐
+                 │      Frontend         │
+                 └──────────┬────────────┘
+                            │
+                            │ HTTP
+                            ▼
+                 ┌───────────────────────┐
+                 │    Spring Boot API    │
+                 │───────────────────────│
+                 │ REST Endpoints        │
+                 │ Job Persistence       │
+                 │ RabbitMQ Consumers    │
+                 └──────────┬────────────┘
+                            │
+                            │ HTTP Trigger
+                            ▼
+                 ┌───────────────────────┐
+                 │    FastAPI Worker     │
+                 │───────────────────────│
+                 │ Async Tasks           │
+                 │ Playwright            │
+                 │ BeautifulSoup         │
+                 └──────────┬────────────┘
+                            │
+                            │ Publish Events
+                            ▼
+                 ┌───────────────────────┐
+                 │      RabbitMQ         │
+                 └──────────┬────────────┘
+                            │
+                            ▼
+                 ┌───────────────────────┐
+                 │ Spring Consumers      │
+                 │ Save / Update Jobs    │
+                 └──────────┬────────────┘
+                            │
+                            ▼
+                 ┌───────────────────────┐
+                 │     PostgreSQL        │
+                 └───────────────────────┘
+
+</pre>
+                    </div>
+
+                </section>
+
+
+                <section class="card" style="margin-top:20px;">
+
+                    <h2>End-to-End Workflow</h2>
+
+                    <p>
+
+                        A user request only initiates scraping.
+                        The expensive browser automation happens asynchronously,
+                        allowing the API to respond immediately while the worker
+                        continues processing in the background.
+
+                    </p>
+
+                    <div class="code">
+<pre>
+
+User clicks "Search Jobs"
+
+        │
+        ▼
+
+Spring Boot REST API
+
+        │
+        ▼
+
+Trigger FastAPI Worker
+
+        │
+        ▼
+
+HTTP 202 Accepted
+
+──────── Background Processing ────────
+
+        │
+        ▼
+
+Launch Playwright Browser
+
+        │
+        ▼
+
+Navigate Company Careers Site
+
+        │
+        ▼
+
+Extract Job Listings
+
+        │
+        ▼
+
+Extract Job Description
+
+        │
+        ▼
+
+Publish Event
+
+        │
+        ▼
+
+RabbitMQ
+
+        │
+        ▼
+
+Spring Consumer
+
+        │
+        ▼
+
+Persist Job
+
+        │
+        ▼
+
+Ready for Search
+
+</pre>
+                    </div>
+
+                </section>
+
+
+                <section class="card" style="margin-top:20px;">
+
+                    <h2>Backend Components</h2>
+
+                    <div class="summary">
+
+                        <div>Spring Boot</div>
+
+                        <div>
+
+                            Provides REST APIs, coordinates scraping requests,
+                            consumes RabbitMQ events, performs persistence
+                            and exposes search endpoints.
+
+                        </div>
+
+                        <div>FastAPI Worker</div>
+
+                        <div>
+
+                            Executes asynchronous scraping tasks,
+                            launches Playwright browsers,
+                            parses HTML using BeautifulSoup,
+                            and publishes discovered jobs.
+
+                        </div>
+
+                        <div>RabbitMQ</div>
+
+                        <div>
+
+                            Decouples Spring Boot from the scraping worker,
+                            enabling asynchronous communication
+                            and independent scaling.
+
+                        </div>
+
+                        <div>PostgreSQL</div>
+
+                        <div>
+
+                            Stores companies, job listings,
+                            descriptions, metadata and future
+                            scraper configuration.
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <section class="card" style="margin-top:20px;">
+
+                    <h2>RabbitMQ Event Pipeline</h2>
+
+                    <p>
+
+                        Instead of returning a complete list of jobs over HTTP,
+                        the worker publishes each discovered job as an individual
+                        event. Spring Boot consumes these events and persists them
+                        immediately.
+
+                    </p>
+
+                    <div class="code">
+<pre>
+
+HTTP Request
+
+      │
+
+      ▼
+
+FastAPI Worker
+
+      │
+
+      ├─────────────┐
+
+      ▼             ▼
+
+ Job Found      Description Ready
+
+      │             │
+
+      └──────┬──────┘
+
+             ▼
+
+        RabbitMQ
+
+             │
+
+             ▼
+
+ Spring Boot Consumer
+
+             │
+
+             ▼
+
+       PostgreSQL
+
+</pre>
+                    </div>
+
+                    <div class="callout">
+
+                        <strong>Why this approach?</strong>
+
+                        <br><br>
+
+                        Publishing individual events reduces coupling between services.
+                        Spring Boot no longer waits for the scraper to finish,
+                        allowing HTTP requests to return almost immediately while
+                        persistence continues asynchronously.
+
+                    </div>
+
+                </section>
+
+
+                <section class="card" style="margin-top:20px;">
+
+                    <h2>Technology Stack</h2>
+
+                    <div class="list-tags">
+
+                        <span>Spring Boot</span>
+                        <span>Spring Data JPA</span>
+                        <span>Spring AMQP</span>
+                        <span>RabbitMQ</span>
+                        <span>PostgreSQL</span>
+                        <span>FastAPI</span>
+                        <span>Playwright</span>
+                        <span>BeautifulSoup</span>
+                        <span>AsyncIO</span>
+                        <span>Docker</span>
+
+                    </div>
+
+                </section>
+                                <section class="card" style="margin-top:20px;">
+
+                    <h2>Architecture Evolution</h2>
+
+                    <p>
+
+                        The first implementation returned every scraped job through
+                        the HTTP response. While functional, this tightly coupled
+                        the API with the scraping worker and caused long-running
+                        requests whenever a company had hundreds of listings.
+
+                    </p>
+
+                    <h3 style="margin-top:20px;">Version 1 · Synchronous</h3>
+
+                    <div class="code">
+<pre>
+
+Client
+   │
+   ▼
+Spring Boot
+   │
+HTTP
+   ▼
+FastAPI
+   │
+Playwright
+   │
+Extract Everything
+   │
+Return List&lt;Job&gt;
+   ▼
+Spring Boot
+
+Problems
+
+• HTTP blocked until scraping finished
+• Large JSON payloads
+• Tight coupling
+• Poor user experience
+
+</pre>
+                    </div>
+
+                    <h3 style="margin-top:24px;">Version 2 · Event Driven</h3>
+
+                    <div class="code">
+<pre>
+
+Client
+   │
+   ▼
+Spring Boot
+   │
+HTTP Trigger
+   ▼
+FastAPI
+
+Return 202 Accepted
+
+──────── Background Processing ────────
+
+Playwright
+     │
+     ▼
+RabbitMQ
+     │
+     ▼
+Spring Consumer
+     │
+     ▼
+PostgreSQL
+
+Benefits
+
+✓ Immediate API response
+✓ Loose coupling
+✓ Better scalability
+✓ Independent services
+✓ Smaller HTTP payloads
+
+</pre>
+                    </div>
+
+                </section>
+
+
+
+                <section class="card" style="margin-top:20px;">
+
+                    <h2>Engineering Decisions</h2>
+
+                    <p class="muted">
+
+                        Every major technology choice was driven by a specific
+                        engineering problem rather than simply adding another
+                        framework.
+
+                    </p>
+
+                    <div class="summary">
+
+                        <div>Spring Boot</div>
+
+                        <div>
+
+                            Provides a mature ecosystem for REST APIs,
+                            dependency injection, persistence and messaging.
+
+                        </div>
+
+                        <div>Python Worker</div>
+
+                        <div>
+
+                            Playwright's Python ecosystem provides excellent
+                            support for modern JavaScript-heavy websites.
+
+                        </div>
+
+                        <div>RabbitMQ</div>
+
+                        <div>
+
+                            Decouples backend services and allows long-running
+                            scraping to continue independently of client requests.
+
+                        </div>
+
+                        <div>PostgreSQL</div>
+
+                        <div>
+
+                            Stores normalized company, job and description data
+                            while supporting future search capabilities.
+
+                        </div>
+
+                        <div>AsyncIO</div>
+
+                        <div>
+
+                            Allows concurrent browser automation and messaging
+                            without blocking the worker.
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <section class="card" style="margin-top:20px;">
+
+                    <h2>Implementation Highlights</h2>
+
+                    <ul>
+
+                        <li>
+
+                            Designed asynchronous Playwright workers capable of
+                            scraping modern JavaScript-rendered career portals.
+
+                        </li>
+
+                        <li>
+
+                            Implemented RabbitMQ publishers and consumers for
+                            event-driven communication between Python and Spring.
+
+                        </li>
+
+                        <li>
+
+                            Built background processing so HTTP requests return
+                            immediately while scraping continues independently.
+
+                        </li>
+
+                        <li>
+
+                            Persisted job listings and descriptions separately,
+                            allowing incremental enrichment as scraping progresses.
+
+                        </li>
+
+                        <li>
+
+                            Implemented pagination support for companies with
+                            hundreds of job postings.
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+
+
+                <section class="card" style="margin-top:20px;">
+
+                    <h2>Technical Challenges</h2>
+
+                    <div class="summary">
+
+                        <div>Blocking Requests</div>
+
+                        <div>
+
+                            Originally every API call waited for browser
+                            automation to finish.
+
+                            <br><br>
+
+                            <strong>Solution:</strong>
+
+                            Background workers with asynchronous messaging.
+
+                        </div>
+
+                        <div>Java ↔ Python</div>
+
+                        <div>
+
+                            The backend required reliable communication between
+                            two different runtimes.
+
+                            <br><br>
+
+                            <strong>Solution:</strong>
+
+                            RabbitMQ message queues.
+
+                        </div>
+
+                        <div>Dynamic Websites</div>
+
+                        <div>
+
+                            Traditional HTTP scraping could not execute
+                            JavaScript.
+
+                            <br><br>
+
+                            <strong>Solution:</strong>
+
+                            Playwright browser automation.
+
+                        </div>
+
+                        <div>Incremental Updates</div>
+
+                        <div>
+
+                            Job descriptions became available after the listing
+                            itself.
+
+                            <br><br>
+
+                            <strong>Solution:</strong>
+
+                            Publish additional events to enrich existing records.
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <section class="card" style="margin-top:20px;">
+
+                    <h2>Performance Improvements</h2>
+
+                    <p>
+
+                        The transition from synchronous scraping to an
+                        event-driven architecture significantly reduced API
+                        latency and improved perceived responsiveness.
+
+                    </p>
+
+                    <div class="code">
+<pre>
+
+Before
+
+Client waits...
+
+Spring
+   │
+   ▼
+Python
+   │
+Scrape Everything
+   │
+Return Results
+
+──────────────────────────
+
+After
+
+Spring
+   │
+Trigger Worker
+   │
+Return Immediately
+
+↓
+
+Background Worker
+
+↓
+
+RabbitMQ
+
+↓
+
+Database
+
+</pre>
+                    </div>
+
+                    <div class="callout">
+
+                        <strong>Result</strong>
+
+                        <br><br>
+
+                        Users no longer wait for browser automation to complete.
+                        Scraping continues asynchronously while newly discovered
+                        jobs become available as they are processed.
+
+                    </div>
+
+                </section>
+                                <section class="card" style="margin-top:20px;">
+
+                    <h2>Current Features</h2>
+
+                    <p class="muted">
+                        The platform is actively being developed. The core backend
+                        infrastructure is operational while additional features
+                        continue to be built on top of the existing architecture.
+                    </p>
+
+                    <ul>
+
+                        <li>✅ Distributed Spring Boot and Python architecture</li>
+
+                        <li>✅ Playwright-powered browser automation</li>
+
+                        <li>✅ Asynchronous background scraping</li>
+
+                        <li>✅ RabbitMQ event-driven communication</li>
+
+                        <li>✅ PostgreSQL persistence</li>
+
+                        <li>✅ Job description enrichment</li>
+
+                        <li>✅ Company-specific scraping pipeline</li>
+
+                        <li>🚧 Configurable scraper definitions</li>
+
+                        <li>🚧 Resume generation</li>
+
+                        <li>🚧 AI-powered cover letter generation</li>
+
+                    </ul>
+
+                </section>
+
+
+                <section class="card" style="margin-top:20px;">
+
+                    <h2>Project Roadmap</h2>
+
+                    <p>
+
+                        Fleeting Jobs is being developed incrementally, with each
+                        milestone building on a stable foundation rather than
+                        introducing unfinished functionality.
+
+                    </p>
+
+                    <div class="code">
+<pre>
+
+Completed
+────────────────────────────
+
+✔ Spring Boot REST API
+
+✔ PostgreSQL Integration
+
+✔ Playwright Scraper
+
+✔ RabbitMQ Messaging
+
+✔ Background Workers
+
+✔ Async Description Extraction
+
+
+
+In Progress
+────────────────────────────
+
+◉ Configurable Scraper Definitions
+
+◉ Resume Generation
+
+◉ AI Cover Letter Generation
+
+
+
+Planned
+────────────────────────────
+
+○ Scheduled Scraping
+
+○ WebSocket Progress Updates
+
+○ Multi-company Dashboard
+
+○ Search Improvements
+
+○ Application Tracking
+
+</pre>
+                    </div>
+
+                </section>
+
+
+
+                <section class="card" style="margin-top:20px;">
+
+                    <h2>Lessons Learned</h2>
+
+                    <ul>
+
+                        <li>
+
+                            Long-running browser automation should never block
+                            HTTP requests.
+
+                        </li>
+
+                        <li>
+
+                            Message queues simplify communication between
+                            heterogeneous services.
+
+                        </li>
+
+                        <li>
+
+                            Separating orchestration from execution produces a
+                            cleaner architecture.
+
+                        </li>
+
+                        <li>
+
+                            Asynchronous processing dramatically improves user
+                            experience without increasing complexity for API
+                            consumers.
+
+                        </li>
+
+                        <li>
+
+                            Designing around events rather than direct service
+                            calls makes future scaling significantly easier.
+
+                        </li>
+
+                    </ul>
+
+                </section>
+
+
+
+                <section class="card" style="margin-top:20px;">
+
+                    <h2>Repository</h2>
+
+                    <p>
+
+                        The complete source code, commit history and project
+                        documentation are available on GitHub.
+
+                    </p>
+
+                    <div style="display:flex; gap:12px; margin-top:20px; flex-wrap:wrap;">
+
+                        <a href="https://github.com/abtahi-tajwar/fleeting-jobs-backend.git"
+                           target="_blank"
+                           class="px-5 py-3 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium">
+
+                            View Source Code
+
+                        </a>
+
+                        <!-- <a href="YOUR_YOUTUBE_LINK"
+                           target="_blank"
+                           class="px-5 py-3 rounded-lg border border-white/20 bg-white/5">
+
+                            Watch Demo
+
+                        </a> -->
+
+                    </div>
+
+                </section>
+
+
+
+                <footer style="margin:40px 0 20px; text-align:center; color:var(--muted);">
+
+                    ©
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>
+
+                    Abtahi Tajwar · Fleeting Jobs Backend Case Study
+
+                </footer>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
