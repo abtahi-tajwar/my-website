@@ -211,7 +211,8 @@
       "forks": 0,
       "featured": false,
       "codeUrl": "https://github.com/abtahi-tajwar/fleeting-jobs-backend",
-      "details": "/project/fleeting-jobs"
+      "details": "/project/fleeting-jobs",
+      "demoUrl": "https://fleetingjobs.netlify.app/"
     },
     {
       "id": "sparkle-music-react-native",
